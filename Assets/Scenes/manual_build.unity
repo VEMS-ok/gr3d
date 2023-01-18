@@ -902,6 +902,7 @@ GameObject:
   - component: {fileID: 1232955731}
   - component: {fileID: 1232955732}
   - component: {fileID: 1232955733}
+  - component: {fileID: 1232955734}
   m_Layer: 9
   m_Name: CameraRig
   m_TagString: Untagged
@@ -960,7 +961,7 @@ MonoBehaviour:
     rotationAroundReference: {fileID: 0}
     rotationFollows: 0
     rotationFollowsReference: {fileID: 0}
-    joylookRotationAxes: 2
+    joylookRotationAxes: 1
     wandlookRotation: 1
     wandLookContinuousDrive: 0
     m_navigationMethod: 0
@@ -1094,7 +1095,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232955723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05827d7660b758b4494ba84cd2dcbd55, type: 3}
   m_Name: 
@@ -1146,6 +1147,19 @@ MonoBehaviour:
   onDropped:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1232955734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232955723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30166f9b12abc82408b8e6b03c3589bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 325043806}
 --- !u!1 &1477297407
 GameObject:
   m_ObjectHideFlags: 0
