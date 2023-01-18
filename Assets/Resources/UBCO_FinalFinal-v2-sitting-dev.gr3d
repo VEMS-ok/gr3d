@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="17">
+<display class_id="0" tracking_level="0" version="1">
+	<px class_id="1" class_name="vizwiz::DisplaySystemCurvedWall" tracking_level="1" version="1" object_id="_0">
+		<DisplaySystem class_id="2" tracking_level="0" version="2">
+			<name>UBCO_FinalFinal v2 sitting up front DEV</name>
+			<screens class_id="3" tracking_level="0" version="0">
+				<count>8</count>
+				<item_version>1</item_version>
+				<item class_id="4" tracking_level="0" version="1">
+					<px class_id="5" tracking_level="1" version="2" object_id="_1">
+						<displaySystem class_id="6" tracking_level="0" version="0">
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 1</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset class_id="7" tracking_level="0" version="0">
+							<x>-2.89790520705291101e+03</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-8.10472858507167416e+02</z>
+						</offset>
+						<rotation class_id="8" tracking_level="0" version="0">
+							<x>0.00000000000000000e+00</x>
+							<y>6.04425324604608960e-01</y>
+							<z>0.00000000000000000e+00</z>
+							<w>7.96661802132255570e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections class_id="9" tracking_level="0" version="0">
+							<count>1</count>
+							<item_version>1</item_version>
+							<item class_id="10" tracking_level="0" version="1">
+								<px class_id="11" tracking_level="1" version="1" object_id="_2">
+									<screen class_id="12" tracking_level="0" version="0">
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_1"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 1</name>
+									<ll class_id="13" tracking_level="0" version="0">
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>-3.04967309224035762e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-2.67815642868624877e+02</z>
+						</ll>
+						<lr>
+							<x>-2.74613732186546440e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-1.35313007414570984e+03</z>
+						</lr>
+						<ur>
+							<x>-2.74613732186546440e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-1.35313007414570984e+03</z>
+						</ur>
+						<ul>
+							<x>-3.04967309224035762e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-2.67815642868624877e+02</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser class_id="14" tracking_level="0" version="0">
+							<weak_ptr class_id="15" tracking_level="0" version="1">
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_3">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 2</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>-2.40712426448938868e+03</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-1.80567816034518546e+03</z>
+						</offset>
+						<rotation>
+							<x>0.00000000000000000e+00</x>
+							<y>4.47173769398160836e-01</y>
+							<z>0.00000000000000000e+00</z>
+							<w>8.94447102942505401e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_4">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_3"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 2</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>-2.74525274448502660e+03</x>
+							<y>-4.54747350886464119e-13</y>
+							<z>-1.35492381962877539e+03</z>
+						</ll>
+						<lr>
+							<x>-2.06899578449375076e+03</x>
+							<y>-4.54747350886464119e-13</y>
+							<z>-2.25643250106159576e+03</z>
+						</lr>
+						<ur>
+							<x>-2.06899578449375076e+03</x>
+							<y>2.29061000000000058e+03</y>
+							<z>-2.25643250106159576e+03</z>
+						</ur>
+						<ul>
+							<x>-2.74525274448502660e+03</x>
+							<y>2.29061000000000058e+03</y>
+							<z>-1.35492381962877539e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_5">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 3</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>-1.58901230663844672e+03</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-2.55533965116043146e+03</z>
+						</offset>
+						<rotation>
+							<x>0.00000000000000000e+00</x>
+							<y>2.74588618184932354e-01</y>
+							<z>0.00000000000000000e+00</z>
+							<w>9.61561797682962127e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_6">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_5"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 3</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>-2.06752122982013134e+03</x>
+							<y>-4.54747350886464119e-13</y>
+							<z>-2.25778368147682613e+03</z>
+						</ll>
+						<lr>
+							<x>-1.11050338345676209e+03</x>
+							<y>-4.54747350886464119e-13</y>
+							<z>-2.85289562084403678e+03</z>
+						</lr>
+						<ur>
+							<x>-1.11050338345676209e+03</x>
+							<y>2.29061000000000058e+03</y>
+							<z>-2.85289562084403678e+03</z>
+						</ur>
+						<ul>
+							<x>-2.06752122982013134e+03</x>
+							<y>2.29061000000000058e+03</y>
+							<z>-2.25778368147682613e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_7">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 4</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>-5.54819683859098404e+02</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-2.95751516679858196e+03</z>
+						</offset>
+						<rotation>
+							<x>0.00000000000000000e+00</x>
+							<y>9.25878186769156508e-02</y>
+							<z>0.00000000000000000e+00</z>
+							<w>9.95704522352213961e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_8">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_7"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 4</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>-1.10863936771819681e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-2.85362049692060418e+03</z>
+						</ll>
+						<lr>
+							<x>-1.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-3.06140983667655973e+03</z>
+						</lr>
+						<ur>
+							<x>-1.00000000000000000e+00</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-3.06140983667655973e+03</z>
+						</ur>
+						<ul>
+							<x>-1.10863936771819681e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-2.85362049692060418e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_9">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 5</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>5.54819683859098404e+02</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-2.95751516679858196e+03</z>
+						</offset>
+						<rotation>
+							<x>-0.00000000000000000e+00</x>
+							<y>-9.25878186769156508e-02</y>
+							<z>-0.00000000000000000e+00</z>
+							<w>9.95704522352213961e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_10">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_9"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 5</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>1.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-3.06140983667655973e+03</z>
+						</ll>
+						<lr>
+							<x>1.10863936771819681e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-2.85362049692060418e+03</z>
+						</lr>
+						<ur>
+							<x>1.10863936771819681e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-2.85362049692060418e+03</z>
+						</ur>
+						<ul>
+							<x>1.00000000000000000e+00</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-3.06140983667655973e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_11">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 6</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>1.58901230663844694e+03</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-2.55533965116043146e+03</z>
+						</offset>
+						<rotation>
+							<x>-0.00000000000000000e+00</x>
+							<y>-2.74588618184932409e-01</y>
+							<z>-0.00000000000000000e+00</z>
+							<w>9.61561797682962127e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_12">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_11"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 6</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>1.11050338345676232e+03</x>
+							<y>-4.54747350886464119e-13</y>
+							<z>-2.85289562084403678e+03</z>
+						</ll>
+						<lr>
+							<x>2.06752122982013134e+03</x>
+							<y>-4.54747350886464119e-13</y>
+							<z>-2.25778368147682613e+03</z>
+						</lr>
+						<ur>
+							<x>2.06752122982013134e+03</x>
+							<y>2.29061000000000058e+03</y>
+							<z>-2.25778368147682613e+03</z>
+						</ur>
+						<ul>
+							<x>1.11050338345676232e+03</x>
+							<y>2.29061000000000058e+03</y>
+							<z>-2.85289562084403678e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_13">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 7</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>2.40712426448938913e+03</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-1.80567816034518478e+03</z>
+						</offset>
+						<rotation>
+							<x>-0.00000000000000000e+00</x>
+							<y>-4.47173769398160836e-01</y>
+							<z>-0.00000000000000000e+00</z>
+							<w>8.94447102942505179e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_14">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_13"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 7</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>2.06899578449375167e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-2.25643250106159485e+03</z>
+						</ll>
+						<lr>
+							<x>2.74525274448502660e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-1.35492381962877471e+03</z>
+						</lr>
+						<ur>
+							<x>2.74525274448502660e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-1.35492381962877471e+03</z>
+						</ur>
+						<ul>
+							<x>2.06899578449375167e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-2.25643250106159485e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="5" object_id="_15">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<name>Screen 8</name>
+						<width>1.12696112560965594e+03</width>
+						<height>2.29061000000000013e+03</height>
+						<offset>
+							<x>2.89790520705291146e+03</x>
+							<y>1.14530500000000006e+03</y>
+							<z>-8.10472858507166734e+02</z>
+						</offset>
+						<rotation>
+							<x>-0.00000000000000000e+00</x>
+							<y>-6.04425324604609071e-01</y>
+							<z>-0.00000000000000000e+00</z>
+							<w>7.96661802132255459e-01</w>
+						</rotation>
+						<enabled>1</enabled>
+						<projections>
+							<count>1</count>
+							<item_version>1</item_version>
+							<item>
+								<px class_id_reference="11" object_id="_16">
+									<screen>
+										<weak_ptr>
+											<px class_id_reference="5" object_id_reference="_15"></px>
+										</weak_ptr>
+									</screen>
+									<name>Screen 8</name>
+									<ll>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+									</ll>
+									<ur>
+										<x>1.00000000000000000e+00</x>
+										<y>1.00000000000000000e+00</y>
+									</ur>
+									<row>0</row>
+									<column>0</column>
+								</px>
+							</item>
+						</projections>
+						<cornersDirty>0</cornersDirty>
+						<ll>
+							<x>2.74613732186546486e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-1.35313007414570939e+03</z>
+						</ll>
+						<lr>
+							<x>3.04967309224035807e+03</x>
+							<y>0.00000000000000000e+00</y>
+							<z>-2.67815642868624082e+02</z>
+						</lr>
+						<ur>
+							<x>3.04967309224035807e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-2.67815642868624082e+02</z>
+						</ur>
+						<ul>
+							<x>2.74613732186546486e+03</x>
+							<y>2.29061000000000013e+03</y>
+							<z>-1.35313007414570939e+03</z>
+						</ul>
+						<rows>1</rows>
+						<columns>1</columns>
+						<hOverlap>0.00000000000000000e+00</hOverlap>
+						<vOverlap>0.00000000000000000e+00</vOverlap>
+						<screenSpace>0</screenSpace>
+						<screenSpaceUser>
+							<weak_ptr>
+								<px class_id="-1"></px>
+							</weak_ptr>
+						</screenSpaceUser>
+						<hOverlapLength>0.00000000000000000e+00</hOverlapLength>
+						<vOverlapLength>0.00000000000000000e+00</vOverlapLength>
+						<useOverlapLength>1</useOverlapLength>
+					</px>
+				</item>
+			</screens>
+			<controlScreen>
+				<px class_id="-1"></px>
+			</controlScreen>
+			<trackers class_id="17" tracking_level="0" version="0">
+				<count>2</count>
+				<item_version>1</item_version>
+				<item class_id="18" tracking_level="0" version="1">
+					<px class_id="19" tracking_level="1" version="1" object_id="_17">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<origin>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>0.00000000000000000e+00</z>
+						</origin>
+						<referenceScreen>
+							<px class_id_reference="5" object_id_reference="_7"></px>
+						</referenceScreen>
+						<offset>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>1.50000000000000000e+03</z>
+						</offset>
+						<orientation>
+							<x>-1.05000000000000000e+01</x>
+							<y>0.00000000000000000e+00</y>
+							<z>0.00000000000000000e+00</z>
+						</orientation>
+						<trackerType>0</trackerType>
+						<sensors class_id="20" tracking_level="0" version="0">
+							<count>0</count>
+							<item_version>1</item_version>
+						</sensors>
+						<name>trackd</name>
+						<refVertAlign>2</refVertAlign>
+						<refHorizAlign>2</refHorizAlign>
+						<trackdTrackerKey>4126</trackdTrackerKey>
+						<trackdControllerKey>4127</trackdControllerKey>
+						<trackerScale>3.04800000000000011e+02</trackerScale>
+						<buttonCount>12</buttonCount>
+						<valuatorCount>8</valuatorCount>
+					</px>
+				</item>
+				<item>
+					<px class_id_reference="19" object_id="_18">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<origin>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>0.00000000000000000e+00</z>
+						</origin>
+						<referenceScreen>
+							<px class_id="-1"></px>
+						</referenceScreen>
+						<offset>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>0.00000000000000000e+00</z>
+						</offset>
+						<orientation>
+							<x>0.00000000000000000e+00</x>
+							<y>0.00000000000000000e+00</y>
+							<z>0.00000000000000000e+00</z>
+						</orientation>
+						<trackerType>1</trackerType>
+						<sensors>
+							<count>2</count>
+							<item_version>1</item_version>
+							<item class_id="21" tracking_level="0" version="1">
+								<px class_id="22" tracking_level="1" version="1" object_id="_19">
+									<static>0</static>
+									<name>Head</name>
+									<tracker class_id="23" tracking_level="0" version="0">
+										<weak_ptr>
+											<px class_id_reference="19" object_id_reference="_18"></px>
+										</weak_ptr>
+									</tracker>
+									<staticPosition>
+										<x>0.00000000000000000e+00</x>
+										<y>1.20000000000000000e+03</y>
+										<z>-6.00000000000000000e+02</z>
+									</staticPosition>
+									<staticEulerRotation>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+										<z>0.00000000000000000e+00</z>
+									</staticEulerRotation>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="22" object_id="_20">
+									<static>0</static>
+									<name>Wand</name>
+									<tracker>
+										<weak_ptr>
+											<px class_id_reference="19" object_id_reference="_18"></px>
+										</weak_ptr>
+									</tracker>
+									<staticPosition>
+										<x>0.00000000000000000e+00</x>
+										<y>7.50000000000000000e+02</y>
+										<z>-6.00000000000000000e+02</z>
+									</staticPosition>
+									<staticEulerRotation>
+										<x>0.00000000000000000e+00</x>
+										<y>0.00000000000000000e+00</y>
+										<z>0.00000000000000000e+00</z>
+									</staticEulerRotation>
+								</px>
+							</item>
+						</sensors>
+						<name>Static tracker</name>
+						<refVertAlign>2</refVertAlign>
+						<refHorizAlign>2</refHorizAlign>
+						<trackdTrackerKey>4126</trackdTrackerKey>
+						<trackdControllerKey>4127</trackdControllerKey>
+						<trackerScale>1.00000000000000000e+00</trackerScale>
+						<buttonCount>0</buttonCount>
+						<valuatorCount>0</valuatorCount>
+					</px>
+				</item>
+			</trackers>
+			<tracking class_id="24" tracking_level="0" version="1">
+				<px class_id="25" tracking_level="1" version="2" object_id="_21">
+					<displaySystem>
+						<weak_ptr>
+							<px class_id_reference="1" object_id_reference="_0"></px>
+						</weak_ptr>
+					</displaySystem>
+				</px>
+			</tracking>
+			<computers class_id="26" tracking_level="0" version="0">
+				<count>1</count>
+				<item_version>1</item_version>
+				<item class_id="27" tracking_level="0" version="1">
+					<px class_id="28" tracking_level="1" version="1" object_id="_22">
+						<displaySystem>
+							<weak_ptr>
+								<px class_id_reference="1" object_id_reference="_0"></px>
+							</weak_ptr>
+						</displaySystem>
+						<hostname>localhost</hostname>
+						<channels class_id="29" tracking_level="0" version="0">
+							<count>8</count>
+							<item_version>1</item_version>
+							<item class_id="30" tracking_level="0" version="1">
+								<px class_id="31" tracking_level="1" version="1" object_id="_23">
+									<computer class_id="32" tracking_level="0" version="0">
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>0</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_2"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>4</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id="16" tracking_level="1" version="1" object_id="_24">
+											<displaySystem>
+												<weak_ptr>
+													<px class_id_reference="1" object_id_reference="_0"></px>
+												</weak_ptr>
+											</displaySystem>
+											<name>User 1</name>
+											<head class_id="33" tracking_level="0" version="0">
+												<weak_ptr>
+													<px class_id_reference="22" object_id_reference="_19"></px>
+												</weak_ptr>
+											</head>
+											<wand>
+												<weak_ptr>
+													<px class_id_reference="22" object_id_reference="_20"></px>
+												</weak_ptr>
+											</wand>
+											<eyeSeparation>6.28500000000000014e+01</eyeSeparation>
+										</px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_25">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>240</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_4"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>9</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_26">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>480</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_6"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>2</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_27">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>720</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_8"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>3</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_28">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>960</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_10"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>5</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_29">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>1200</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_12"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>6</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_30">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>1440</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_14"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>7</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+							<item>
+								<px class_id_reference="31" object_id="_31">
+									<computer>
+										<weak_ptr>
+											<px class_id_reference="28" object_id_reference="_22"></px>
+										</weak_ptr>
+									</computer>
+									<x>1680</x>
+									<y>0</y>
+									<width>240</width>
+									<height>540</height>
+									<projection>
+										<px class_id_reference="11" object_id_reference="_16"></px>
+									</projection>
+									<fullScreen>0</fullScreen>
+									<displayId>8</displayId>
+									<gpuAffinity>0</gpuAffinity>
+									<topMost>0</topMost>
+									<showBorders>0</showBorders>
+									<hideMouse>0</hideMouse>
+									<swapInterval>1</swapInterval>
+									<swapLockType>1</swapLockType>
+									<stereoType>0</stereoType>
+									<user>
+										<px class_id_reference="16" object_id_reference="_24"></px>
+									</user>
+									<omniStereo>1</omniStereo>
+									<showUserInterface>0</showUserInterface>
+									<groupId>0</groupId>
+								</px>
+							</item>
+						</channels>
+						<port>42104</port>
+						<windows class_id="34" tracking_level="0" version="0">
+							<count>0</count>
+							<item_version>1</item_version>
+						</windows>
+						<audioForUser>
+							<px class_id_reference="16" object_id_reference="_24"></px>
+						</audioForUser>
+						<manualWindowAssociation>0</manualWindowAssociation>
+					</px>
+				</item>
+			</computers>
+			<users class_id="35" tracking_level="0" version="0">
+				<count>1</count>
+				<item_version>1</item_version>
+				<item>
+					<px class_id_reference="16" object_id_reference="_24"></px>
+				</item>
+			</users>
+			<defaultWindowWidth>1920</defaultWindowWidth>
+			<defaultWindowHeight>1080</defaultWindowHeight>
+			<other class_id="36" tracking_level="0" version="1">
+				<px class_id="37" tracking_level="1" version="1" object_id="_32">
+					<displaySystem>
+						<weak_ptr>
+							<px class_id_reference="1" object_id_reference="_0"></px>
+						</weak_ptr>
+					</displaySystem>
+					<syncTcp>1</syncTcp>
+					<syncThreaded>1</syncThreaded>
+					<clusterInputsEnabled>1</clusterInputsEnabled>
+					<syncRcfPort>42101</syncRcfPort>
+					<syncTcpPort>42103</syncTcpPort>
+					<swapBarrierPort>42102</swapBarrierPort>
+					<connectionTimeout>10</connectionTimeout>
+					<cacheCallTimeout>3600</cacheCallTimeout>
+					<remoteCallTimeout>300</remoteCallTimeout>
+					<maxPayloadSize>1048576</maxPayloadSize>
+					<nvSwapLockJoinFrame>0</nvSwapLockJoinFrame>
+					<nvSwapLockWithSoftware>0</nvSwapLockWithSoftware>
+					<flushPipeline>1</flushPipeline>
+					<compositorUseDxInterop>1</compositorUseDxInterop>
+					<compositorUsePbo>1</compositorUsePbo>
+				</px>
+			</other>
+			<unity class_id="38" tracking_level="0" version="1">
+				<px class_id="39" tracking_level="1" version="0" object_id="_33">
+					<displaySystem>
+						<weak_ptr>
+							<px class_id_reference="1" object_id_reference="_0"></px>
+						</weak_ptr>
+					</displaySystem>
+					<copyInterceptors>1</copyInterceptors>
+					<gfxSingleThread>0</gfxSingleThread>
+					<injectionDelay>1000</injectionDelay>
+					<rendererType>0</rendererType>
+				</px>
+			</unity>
+			<multiCluster class_id="40" tracking_level="0" version="1">
+				<px class_id="41" tracking_level="1" version="1" object_id="_34">
+					<displaySystem>
+						<weak_ptr>
+							<px class_id_reference="1" object_id_reference="_0"></px>
+						</weak_ptr>
+					</displaySystem>
+					<serverPort>9002</serverPort>
+					<clientPort>9003</clientPort>
+					<connectionFrame>1</connectionFrame>
+					<autoHost>0</autoHost>
+					<autoConnectServer></autoConnectServer>
+				</px>
+			</multiCluster>
+			<windowPlacementStrategy class_id="42" tracking_level="0" version="1">
+				<px class_id="43" tracking_level="1" version="1" object_id="_35">
+					<displaySystem>
+						<weak_ptr>
+							<px class_id_reference="1" object_id_reference="_0"></px>
+						</weak_ptr>
+					</displaySystem>
+					<useCompositing class_id="44" tracking_level="0" version="0">
+						<count>8</count>
+						<item_version>0</item_version>
+						<item class_id="45" tracking_level="0" version="0">
+							<first>0</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>1</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>2</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>3</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>4</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>5</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>6</first>
+							<second>0</second>
+						</item>
+						<item>
+							<first>7</first>
+							<second>1</second>
+						</item>
+					</useCompositing>
+					<type>3</type>
+					<errorOnBadLayout>1</errorOnBadLayout>
+					<useDefaultCompositing>1</useDefaultCompositing>
+				</px>
+			</windowPlacementStrategy>
+			<buttons class_id="46" tracking_level="0" version="0">
+				<count>0</count>
+				<item_version>1</item_version>
+			</buttons>
+			<axes class_id="47" tracking_level="0" version="0">
+				<count>0</count>
+				<item_version>1</item_version>
+			</axes>
+		</DisplaySystem>
+		<radius>3.06140999999999985e+03</radius>
+		<angle>1.70000000000000000e+02</angle>
+		<height>2.29061000000000013e+03</height>
+		<rowCount>1</rowCount>
+		<columnCount>8</columnCount>
+		<verticalSeam>2.00000000000000000e+00</verticalSeam>
+		<horizontalSeam>2.00000000000000000e+00</horizontalSeam>
+		<tangent>0</tangent>
+	</px>
+</display>
+</boost_serialization>
+
