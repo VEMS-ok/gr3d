@@ -16,4 +16,4 @@ MonoBehaviour:
   logLevel: 2
   rpcLogLevel: -1
   ignoredErrors: []
-  config: UBCO_FinalFinal-v2-sitting-dev
+  config: UBCO_FinalFinal-v2-dev

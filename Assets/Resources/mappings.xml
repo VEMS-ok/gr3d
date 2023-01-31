@@ -9,7 +9,7 @@
   <map_valuator name="Yaw" index="1" positive_key="VK_E" negative_key="VK_Q" dead_zone="0.1" axis="JOYSTICK_THUMB_RX" />
   <map_valuator name="Forward" index="2" unity_axis="Vertical" positive_key="VK_W" negative_key="VK_S" dead_zone="0.1" axis="JOYSTICK_THUMB_LY" />
   <map_valuator name="Strafe" index="3" unity_axis="Horizontal" positive_key="VK_D" negative_key="VK_A" dead_zone="0.1" axis="JOYSTICK_THUMB_LX" />
-  <map_valuator name="Pitch" dead_zone="0.1" />
+  <map_valuator name="Pitch" index="4" dead_zone="0.1" />
   <map_tracker name="Head" index="1" />
   <map_tracker name="Wand" index="2" />
 </unity>
