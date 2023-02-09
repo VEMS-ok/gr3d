@@ -2,66 +2,66 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-/// <summary>
-/// This scripts allows the player to cycle through the different wands.
-/// </summary>
-[RequireComponent(typeof(PlayerInputs))]
-public class CustomWandManager: MonoBehaviour
+namespace ubc.ok.VEMS.gr3d
 {
-    [Tooltip("List of the different wands the player can choose from.")]
-    public List<GameObject> m_managedObjects;
-
-    [Tooltip("Events to trigger when wand button is pressed down. Passes the active wand object.")]
-    public WandEvent onWandButtonPressed = new WandEvent();
-
-    [Tooltip("Events to trigger when wand button is released. Passes the active wand object.")]
-    public WandEvent onWandButtonReleased = new WandEvent();
-
-    private int m_activeIndex = 0;
-    private PlayerInputs m_playerInputs;
-    void Awake()
+    /// <summary>
+    /// This scripts allows the player to cycle through the different wands.
+    /// </summary>
+    [RequireComponent(typeof(PlayerInputs))]
+    public class CustomWandManager: GenericWandManager
     {
-        m_playerInputs = GetComponent<PlayerInputs>();
-        onWandButtonPressed.AddListener(OnWandButtonPressedBehaviour);
-        onWandButtonReleased.AddListener(OnWandButtonReleasedBehaviour);
-    }
+        [Tooltip("Events to trigger when wand button is pressed down. Passes the active wand object.")]
+        public WandEvent onWandButtonPressed = new WandEvent();
 
-    void Start()
-    {
-        SetWandActive(0);
-    }
+        [Tooltip("Events to trigger when wand button is released. Passes the active wand object.")]
+        public WandEvent onWandButtonReleased = new WandEvent();
 
-    void Update()
-    {
-        if(m_playerInputs.ChangeWandButtonDown) {
-            SetWandActive((m_activeIndex + 1) % m_managedObjects.Count);
+        private int m_activeIndex = 0;
+        private PlayerInputs m_playerInputs;
+        void Awake()
+        {
+            m_playerInputs = GetComponent<PlayerInputs>();
+            onWandButtonPressed.AddListener(OnWandButtonPressedBehaviour);
+            onWandButtonReleased.AddListener(OnWandButtonReleasedBehaviour);
         }
 
-        if(m_playerInputs.WandButtonDown) {
-            onWandButtonPressed.Invoke(m_managedObjects[m_activeIndex]);
+        void Start()
+        {
+            SetWandActive(0);
         }
-        else if (m_playerInputs.WandButtonUp) {
-            onWandButtonReleased.Invoke(m_managedObjects[m_activeIndex]);
+
+        void Update()
+        {
+            if(m_playerInputs.ChangeWandButtonDown) {
+                SetWandActive((m_activeIndex + 1) % m_managedObjects.Count);
+            }
+
+            if(m_playerInputs.WandButtonDown) {
+                onWandButtonPressed.Invoke(m_managedObjects[m_activeIndex]);
+            }
+            else if (m_playerInputs.WandButtonUp) {
+                onWandButtonReleased.Invoke(m_managedObjects[m_activeIndex]);
+            }
+        }
+
+        private void SetWandActive(int index)
+        {
+            getReal3D.Plugin.debug(string.Format("{0} SetWandActive({1})", gameObject.name, index));
+            m_activeIndex = index;
+            for(int i = 0; i < m_managedObjects.Count; ++i) {
+                m_managedObjects[i].SetActive(i == index);
+            }
+        }
+
+        private void OnWandButtonPressedBehaviour(GameObject activeWand) {
+            activeWand.GetComponent<ColorBehaviour>()?.EnableColor();
+        }
+
+        private void OnWandButtonReleasedBehaviour(GameObject activeWand) {
+            activeWand.GetComponent<ColorBehaviour>()?.DisableColor();
         }
     }
 
-    private void SetWandActive(int index)
-    {
-        getReal3D.Plugin.debug(string.Format("{0} SetWandActive({1})", gameObject.name, index));
-        m_activeIndex = index;
-        for(int i = 0; i < m_managedObjects.Count; ++i) {
-            m_managedObjects[i].SetActive(i == index);
-        }
-    }
-
-    private void OnWandButtonPressedBehaviour(GameObject activeWand) {
-        activeWand.GetComponent<ColorBehaviour>()?.EnableColor();
-    }
-
-    private void OnWandButtonReleasedBehaviour(GameObject activeWand) {
-        activeWand.GetComponent<ColorBehaviour>()?.DisableColor();
-    }
+    public class WandEvent: UnityEvent<GameObject>
+    {}
 }
-
-public class WandEvent: UnityEvent<GameObject>
-{}

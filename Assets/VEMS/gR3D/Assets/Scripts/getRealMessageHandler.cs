@@ -9,283 +9,285 @@ using MQTTnet.Protocol;
 using System.Threading.Tasks;
 using System;
 
-public class getRealMessageHandler : getReal3D.MonoBehaviourWithRpc, PlayerInputs
+namespace ubc.ok.VEMS.gr3d
 {
-    private float yawAxis = 0;
-    private float pitchAxis = 0;
-    private bool wandLookButtonDown = false;
-    private bool wandLookButtonUp = false;
-    private bool wandLookButton = false;
-    private bool wandDriveButtonDown = false;
-    private bool wandDriveButtonUp = false;
-    private bool wandDriveButton = false;
-    private float strafeAxis = 0;
-    private float forwardAxis = 0;
-    private bool navSpeedButtonDown = false;
-    private bool navSpeedButtonUp = false;
-    private bool navSpeedButton = false;
-    private bool jumpButtonDown = false;
-    private bool jumpButtonUp = false;
-    private bool jumpButton = false;
-    private bool wandButtonDown = false;
-    private bool wandButtonUp = false;
-    private bool wandButton = false;
-    private bool changeWandButtonDown = false;
-    private bool changeWandButtonUp = false;
-    private bool changeWandButton = false;
-    private bool resetButtonDown = false;
-    private bool resetButtonUp = false;
-    private bool resetButton = false;
-    private Sensor wand = new Sensor();
-    private Sensor head = new Sensor();
+    public class getRealMessageHandler : getReal3D.MonoBehaviourWithRpc, PlayerInputs
+    {
+        private float yawAxis = 0;
+        private float pitchAxis = 0;
+        private bool wandLookButtonDown = false;
+        private bool wandLookButtonUp = false;
+        private bool wandLookButton = false;
+        private bool wandDriveButtonDown = false;
+        private bool wandDriveButtonUp = false;
+        private bool wandDriveButton = false;
+        private float strafeAxis = 0;
+        private float forwardAxis = 0;
+        private bool navSpeedButtonDown = false;
+        private bool navSpeedButtonUp = false;
+        private bool navSpeedButton = false;
+        private bool jumpButtonDown = false;
+        private bool jumpButtonUp = false;
+        private bool jumpButton = false;
+        private bool wandButtonDown = false;
+        private bool wandButtonUp = false;
+        private bool wandButton = false;
+        private bool changeWandButtonDown = false;
+        private bool changeWandButtonUp = false;
+        private bool changeWandButton = false;
+        private bool resetButtonDown = false;
+        private bool resetButtonUp = false;
+        private bool resetButton = false;
+        private Sensor wand = new Sensor();
+        private Sensor head = new Sensor();
 
-    public MonoBehaviour behaviour => GetBehaviour();
+        public MonoBehaviour behaviour => GetBehaviour();
 
-    public float YawAxis => GetYawAxis();
+        public float YawAxis => GetYawAxis();
 
-    public float PitchAxis => GetPitchAxis();
+        public float PitchAxis => GetPitchAxis();
 
-    public bool WandLookButtonDown => GetWandLookButtonDown();
+        public bool WandLookButtonDown => GetWandLookButtonDown();
 
-    public bool WandLookButtonUp => GetWandLookButtonUp();
+        public bool WandLookButtonUp => GetWandLookButtonUp();
 
-    public bool WandLookButton => GetWandLookButton();
+        public bool WandLookButton => GetWandLookButton();
 
-    public bool WandDriveButtonDown => GetWandDriveButtonDown();
+        public bool WandDriveButtonDown => GetWandDriveButtonDown();
 
-    public bool WandDriveButtonUp => GetWandDriveButtonUp();
+        public bool WandDriveButtonUp => GetWandDriveButtonUp();
 
-    public bool WandDriveButton => GetWandDriveButton();
+        public bool WandDriveButton => GetWandDriveButton();
 
-    public float StrafeAxis => GetStrafeAxis();
+        public float StrafeAxis => GetStrafeAxis();
 
-    public float ForwardAxis => GetForwardAxis();
+        public float ForwardAxis => GetForwardAxis();
 
-    public bool NavSpeedButtonDown => GetNavSpeedButtonDown();
+        public bool NavSpeedButtonDown => GetNavSpeedButtonDown();
 
-    public bool NavSpeedButtonUp => GetNavSpeedButtonUp();
+        public bool NavSpeedButtonUp => GetNavSpeedButtonUp();
 
-    public bool NavSpeedButton => GetNavSpeedButton();
+        public bool NavSpeedButton => GetNavSpeedButton();
 
-    public bool JumpButtonDown => GetJumpButtonDown();
+        public bool JumpButtonDown => GetJumpButtonDown();
 
-    public bool JumpButtonUp => GetJumpButtonUp();
+        public bool JumpButtonUp => GetJumpButtonUp();
 
-    public bool JumpButton => GetJumpButton();
+        public bool JumpButton => GetJumpButton();
 
-    public bool WandButtonDown => GetWandButtonDown();
+        public bool WandButtonDown => GetWandButtonDown();
 
-    public bool WandButtonUp => GetWandButtonUp();
+        public bool WandButtonUp => GetWandButtonUp();
 
-    public bool WandButton => GetWandButton();
+        public bool WandButton => GetWandButton();
 
-    public bool ChangeWandButtonDown => GetChangeWandButtonDown();
+        public bool ChangeWandButtonDown => GetChangeWandButtonDown();
 
-    public bool ChangeWandButtonUp => GetChangeWandButtonUp();
+        public bool ChangeWandButtonUp => GetChangeWandButtonUp();
 
-    public bool ChangeWandButton => GetChangeWandButton();
+        public bool ChangeWandButton => GetChangeWandButton();
 
-    public bool ResetButtonDown => GetResetButtonDown();
+        public bool ResetButtonDown => GetResetButtonDown();
 
-    public bool ResetButtonUp => GetResetButtonUp();
+        public bool ResetButtonUp => GetResetButtonUp();
 
-    public bool ResetButton => GetResetButton();
+        public bool ResetButton => GetResetButton();
 
-    public Sensor Wand => GetWand();
+        public Sensor Wand => GetWand();
 
-    public Sensor Head => GetHead();
+        public Sensor Head => GetHead();
 
     #region Unity functions
-    void Start()
-    {
-        // if(getReal3D.Cluster.isMaster)
-        // {
-        //     // CallRpc("SetupMessageHandlers");
-        // }
-        SetupMessageHandlers();
-    }
+        void Start()
+        {
+            // if(getReal3D.Cluster.isMaster)
+            // {
+            //     // CallRpc("SetupMessageHandlers");
+            // }
+            SetupMessageHandlers();
+        }
 
-    void Update()
-    {
-    }
+        void Update()
+        {
+        }
     #endregion
 
     #region PlayerInput functions
-    public MonoBehaviour GetBehaviour()
-    {
-        return this;
-    }
+        public MonoBehaviour GetBehaviour()
+        {
+            return this;
+        }
 
-    public float GetYawAxis()
-    {
-        float retVal = yawAxis;
-        yawAxis = 0;
-        return retVal;
-    }
+        public float GetYawAxis()
+        {
+            float retVal = yawAxis;
+            yawAxis = 0;
+            return retVal;
+        }
 
-    public float GetPitchAxis()
-    {
-        float retVal = pitchAxis;
-        pitchAxis = 0;
-        return retVal;
-    }
+        public float GetPitchAxis()
+        {
+            float retVal = pitchAxis;
+            pitchAxis = 0;
+            return retVal;
+        }
 
-    public bool GetWandLookButtonDown()
-    {
-        return wandLookButtonDown;
-    }
+        public bool GetWandLookButtonDown()
+        {
+            return wandLookButtonDown;
+        }
 
-    public bool GetWandLookButtonUp()
-    {
-        return wandLookButtonUp;
-    }
+        public bool GetWandLookButtonUp()
+        {
+            return wandLookButtonUp;
+        }
 
-    public bool GetWandLookButton()
-    {
-        bool retVal = wandLookButton;
-        wandLookButton = false;
-        return retVal;
-    }
+        public bool GetWandLookButton()
+        {
+            bool retVal = wandLookButton;
+            wandLookButton = false;
+            return retVal;
+        }
 
-    public bool GetWandDriveButtonDown()
-    {
-        return wandDriveButtonDown;
-    }
+        public bool GetWandDriveButtonDown()
+        {
+            return wandDriveButtonDown;
+        }
 
-    public bool GetWandDriveButtonUp()
-    {
-        return wandDriveButtonUp;
-    }
+        public bool GetWandDriveButtonUp()
+        {
+            return wandDriveButtonUp;
+        }
 
-    public bool GetWandDriveButton()
-    {
-        bool retVal = wandDriveButton;
-        wandDriveButton = false;
-        return retVal;
-    }
+        public bool GetWandDriveButton()
+        {
+            bool retVal = wandDriveButton;
+            wandDriveButton = false;
+            return retVal;
+        }
 
-    public float GetStrafeAxis()
-    {
-        float retVal = strafeAxis;
-        strafeAxis = 0;
-        return retVal;
-    }
+        public float GetStrafeAxis()
+        {
+            float retVal = strafeAxis;
+            strafeAxis = 0;
+            return retVal;
+        }
 
-    public float GetForwardAxis()
-    {
-        float retVal = forwardAxis;
-        forwardAxis = 0;
-        return retVal;
-    }
+        public float GetForwardAxis()
+        {
+            float retVal = forwardAxis;
+            forwardAxis = 0;
+            return retVal;
+        }
 
-    public bool GetNavSpeedButtonDown()
-    {
-        return navSpeedButtonDown;
-    }
+        public bool GetNavSpeedButtonDown()
+        {
+            return navSpeedButtonDown;
+        }
 
-    public bool GetNavSpeedButtonUp()
-    {
-        return navSpeedButtonUp;
-    }
+        public bool GetNavSpeedButtonUp()
+        {
+            return navSpeedButtonUp;
+        }
 
-    public bool GetNavSpeedButton()
-    {
-        bool retVal = navSpeedButton;
-        navSpeedButton = false;
-        return retVal;
-    }
+        public bool GetNavSpeedButton()
+        {
+            bool retVal = navSpeedButton;
+            navSpeedButton = false;
+            return retVal;
+        }
 
-    public bool GetJumpButtonDown()
-    {
-        return jumpButtonDown;
-    }
+        public bool GetJumpButtonDown()
+        {
+            return jumpButtonDown;
+        }
 
-    public bool GetJumpButtonUp()
-    {
-        return jumpButtonUp;
-    }
+        public bool GetJumpButtonUp()
+        {
+            return jumpButtonUp;
+        }
 
-    public bool GetJumpButton()
-    {
-        bool retVal = jumpButton;
-        jumpButton = false;
-        return retVal;
-    }
+        public bool GetJumpButton()
+        {
+            bool retVal = jumpButton;
+            jumpButton = false;
+            return retVal;
+        }
 
-    public bool GetWandButtonDown()
-    {
-        return wandButtonDown;
-    }
+        public bool GetWandButtonDown()
+        {
+            return wandButtonDown;
+        }
 
-    public bool GetWandButtonUp()
-    {
-        return wandButtonUp;
-    }
+        public bool GetWandButtonUp()
+        {
+            return wandButtonUp;
+        }
 
-    public bool GetWandButton()
-    {
-        bool retVal = wandButton;
-        wandButton = false;
-        return retVal;
-    }
+        public bool GetWandButton()
+        {
+            bool retVal = wandButton;
+            wandButton = false;
+            return retVal;
+        }
 
-    public bool GetChangeWandButtonDown()
-    {
-        return changeWandButtonDown;
-    }
+        public bool GetChangeWandButtonDown()
+        {
+            return changeWandButtonDown;
+        }
 
-    public bool GetChangeWandButtonUp()
-    {
-        return changeWandButtonUp;
-    }
+        public bool GetChangeWandButtonUp()
+        {
+            return changeWandButtonUp;
+        }
 
-    public bool GetChangeWandButton()
-    {
-        bool retVal = changeWandButton;
-        changeWandButton = false;
-        return retVal;
-    }
+        public bool GetChangeWandButton()
+        {
+            bool retVal = changeWandButton;
+            changeWandButton = false;
+            return retVal;
+        }
 
-    public bool GetResetButtonDown()
-    {
-        return resetButtonDown;
-    }
+        public bool GetResetButtonDown()
+        {
+            return resetButtonDown;
+        }
 
-    public bool GetResetButtonUp()
-    {
-        return resetButtonUp;
-    }
+        public bool GetResetButtonUp()
+        {
+            return resetButtonUp;
+        }
 
-    public bool GetResetButton()
-    {
-        bool retVal = resetButton;
-        resetButton = false;
-        return retVal;
-    }
+        public bool GetResetButton()
+        {
+            bool retVal = resetButton;
+            resetButton = false;
+            return retVal;
+        }
 
-    public Sensor GetWand()
-    {
-        return wand;
-    }
+        public Sensor GetWand()
+        {
+            return wand;
+        }
 
-    public Sensor GetHead()
-    {
-        return head;
-    }
+        public Sensor GetHead()
+        {
+            return head;
+        }
     #endregion
 
     #region MQTT
-    async void SetupMessageHandlers()
-    {
-        MqttFactory mqttFactory = new MqttFactory();
+        async void SetupMessageHandlers()
+        {
+            MqttFactory mqttFactory = new MqttFactory();
 
-        IMqttClient mqttClient = mqttFactory.CreateMqttClient();
+            IMqttClient mqttClient = mqttFactory.CreateMqttClient();
         
             MqttClientOptions mqttClientOptions = new MqttClientOptionsBuilder().WithTcpServer("127.0.0.1", 80).Build();
 
             mqttClient.ApplicationMessageReceivedAsync += e =>
             {
-                // Debug.Log($"{e.ApplicationMessage.ConvertPayloadToString()}  // {e.ApplicationMessage.ContentType}");
+// Debug.Log($"{e.ApplicationMessage.ConvertPayloadToString()}  // {e.ApplicationMessage.ContentType}");
                 string payload = e.ApplicationMessage.ConvertPayloadToString();
                 switch (e.ApplicationMessage.Topic)
                 {
@@ -378,138 +380,139 @@ public class getRealMessageHandler : getReal3D.MonoBehaviourWithRpc, PlayerInput
 
             // The response contains additional data sent by the server after subscribing.
             // Debug.Log($"{response.ReasonString} " + string.Join(", ",response.Items));
-    }
+        }
 
 
     #region helper functions
-    private float StringToFloat(string message)
-    {
-        return float.Parse(message);
-    }
+        private float StringToFloat(string message)
+        {
+            return float.Parse(message);
+        }
 
-    private bool StringToBool(string message)
-    {
-        return bool.Parse(message);
-    }
+        private bool StringToBool(string message)
+        {
+            return bool.Parse(message);
+        }
 
-    private void SetYawAxis(string message)
-    {
-        yawAxis = StringToFloat(message);
-    }
+        private void SetYawAxis(string message)
+        {
+            yawAxis = StringToFloat(message);
+        }
 
-    private void SetPitchAxis(string message)
-    {
-        pitchAxis = StringToFloat(message);
-    }
+        private void SetPitchAxis(string message)
+        {
+            pitchAxis = StringToFloat(message);
+        }
 
-    private void SetStrafeAxis(string message)
-    {
-        strafeAxis = StringToFloat(message);
-    }
+        private void SetStrafeAxis(string message)
+        {
+            strafeAxis = StringToFloat(message);
+        }
     
-    private void SetForwardAxis(string message)
-    {
-        forwardAxis = StringToFloat(message);
-    }
+        private void SetForwardAxis(string message)
+        {
+            forwardAxis = StringToFloat(message);
+        }
 
-    private void SetWandLookButtonDown(string message)
-    {
-        wandLookButtonDown = StringToBool(message);
-        wandLookButtonUp = false;
-        wandLookButton = false;
-    }
+        private void SetWandLookButtonDown(string message)
+        {
+            wandLookButtonDown = StringToBool(message);
+            wandLookButtonUp = false;
+            wandLookButton = false;
+        }
 
-    private void SetWandLookButtonUp(string message)
-    {
-        wandLookButtonDown = false;
-        wandLookButtonUp = StringToBool(message);
-        wandLookButton = false;
-    }
+        private void SetWandLookButtonUp(string message)
+        {
+            wandLookButtonDown = false;
+            wandLookButtonUp = StringToBool(message);
+            wandLookButton = false;
+        }
 
-    private void SetWandDriveButtonDown(string message)
-    {
-        wandDriveButtonDown = StringToBool(message);
-        wandDriveButtonUp = false;
-        wandDriveButton = false;
-    }
+        private void SetWandDriveButtonDown(string message)
+        {
+            wandDriveButtonDown = StringToBool(message);
+            wandDriveButtonUp = false;
+            wandDriveButton = false;
+        }
 
-    private void SetWandDriveButtonUp(string message)
-    {
-        wandDriveButtonDown = false;
-        wandDriveButtonUp = StringToBool(message);
-        wandDriveButton = false;
-    }
+        private void SetWandDriveButtonUp(string message)
+        {
+            wandDriveButtonDown = false;
+            wandDriveButtonUp = StringToBool(message);
+            wandDriveButton = false;
+        }
 
-    private void SetNavSpeedButtonDown(string message)
-    {
-        navSpeedButtonDown = StringToBool(message);
-        navSpeedButtonUp = false;
-        navSpeedButton = false;
-    }
+        private void SetNavSpeedButtonDown(string message)
+        {
+            navSpeedButtonDown = StringToBool(message);
+            navSpeedButtonUp = false;
+            navSpeedButton = false;
+        }
 
-    private void SetNavSpeedButtonUp(string message)
-    {
-        navSpeedButtonDown = false;
-        navSpeedButtonUp = StringToBool(message);
-        navSpeedButton = false;
-    }
+        private void SetNavSpeedButtonUp(string message)
+        {
+            navSpeedButtonDown = false;
+            navSpeedButtonUp = StringToBool(message);
+            navSpeedButton = false;
+        }
 
-    private void SetJumpButtonDown(string message)
-    {
-        jumpButtonDown = StringToBool(message);
-        jumpButtonUp = false;
-        jumpButton = false;
-    }
+        private void SetJumpButtonDown(string message)
+        {
+            jumpButtonDown = StringToBool(message);
+            jumpButtonUp = false;
+            jumpButton = false;
+        }
 
-    private void SetJumpButtonUp(string message)
-    {
-        jumpButtonDown = false;
-        jumpButtonUp = StringToBool(message);
-        jumpButton = false;
-    }
+        private void SetJumpButtonUp(string message)
+        {
+            jumpButtonDown = false;
+            jumpButtonUp = StringToBool(message);
+            jumpButton = false;
+        }
 
-    private void SetWandButtonDown(string message)
-    {
-        wandButtonDown = StringToBool(message);
-        wandButtonUp = false;
-        wandButton = false;
-    }
+        private void SetWandButtonDown(string message)
+        {
+            wandButtonDown = StringToBool(message);
+            wandButtonUp = false;
+            wandButton = false;
+        }
 
-    private void SetWandButtonUp(string message)
-    {
-        wandButtonDown = false;
-        wandButtonUp = StringToBool(message);
-        wandButton = false;
-    }
+        private void SetWandButtonUp(string message)
+        {
+            wandButtonDown = false;
+            wandButtonUp = StringToBool(message);
+            wandButton = false;
+        }
 
-    private void SetChangeWandButtonDown(string message)
-    {
-        changeWandButtonDown = StringToBool(message);
-        changeWandButtonUp = false;
-        changeWandButton = false;
-    }
+        private void SetChangeWandButtonDown(string message)
+        {
+            changeWandButtonDown = StringToBool(message);
+            changeWandButtonUp = false;
+            changeWandButton = false;
+        }
 
-    private void SetChangeWandButtonUp(string message)
-    {
-        changeWandButtonDown = false;
-        changeWandButtonUp = StringToBool(message);
-        changeWandButton = false;
-    }
+        private void SetChangeWandButtonUp(string message)
+        {
+            changeWandButtonDown = false;
+            changeWandButtonUp = StringToBool(message);
+            changeWandButton = false;
+        }
 
-    private void SetResetButtonDown(string message)
-    {
-        resetButtonDown = StringToBool(message);
-        resetButtonUp = false;
-        resetButton = false;
-    }
+        private void SetResetButtonDown(string message)
+        {
+            resetButtonDown = StringToBool(message);
+            resetButtonUp = false;
+            resetButton = false;
+        }
 
-    private void SetResetButtonUp(string message)
-    {
-        resetButtonDown = false;
-        resetButtonUp = StringToBool(message);
-        resetButton = false;
-    }
+        private void SetResetButtonUp(string message)
+        {
+            resetButtonDown = false;
+            resetButtonUp = StringToBool(message);
+            resetButton = false;
+        }
     #endregion
 
     #endregion
+    }
 }

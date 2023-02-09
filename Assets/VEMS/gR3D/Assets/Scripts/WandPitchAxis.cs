@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using getReal3D;
 
-namespace getReal3D.ubco
+namespace ubc.ok.VEMS.gr3d
 {
     [RequireComponent(typeof(PlayerInputs))]
     public class  WandPitchAxis: MonoBehaviour
