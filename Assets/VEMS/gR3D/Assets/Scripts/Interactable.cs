@@ -22,6 +22,10 @@ namespace ubc.ok.VEMS.gr3d
         private bool hovering = false;
         private bool selected = false;
 
+        void Awake()
+        {
+            gameObject.layer = LayerMask.NameToLayer("Interactable");
+        }
         // Start is called before the first frame update
         void Start()
         {
@@ -57,6 +61,7 @@ namespace ubc.ok.VEMS.gr3d
             {
                 OnHoverExit.Invoke(gameObject);
             }
+            SelectionExit();
             hovering = false;
         }
 

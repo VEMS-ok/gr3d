@@ -121,14 +121,14 @@ namespace ubc.ok.VEMS.gr3d
         public float GetYawAxis()
         {
             float retVal = yawAxis;
-            yawAxis = 0;
+            // yawAxis = 0;
             return retVal;
         }
 
         public float GetPitchAxis()
         {
             float retVal = pitchAxis;
-            pitchAxis = 0;
+            // pitchAxis = 0;
             return retVal;
         }
 
@@ -145,7 +145,7 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetWandLookButton()
         {
             bool retVal = wandLookButton;
-            wandLookButton = false;
+            // wandLookButton = false;
             return retVal;
         }
 
@@ -162,21 +162,21 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetWandDriveButton()
         {
             bool retVal = wandDriveButton;
-            wandDriveButton = false;
+            // wandDriveButton = false;
             return retVal;
         }
 
         public float GetStrafeAxis()
         {
             float retVal = strafeAxis;
-            strafeAxis = 0;
+            // strafeAxis = 0;
             return retVal;
         }
 
         public float GetForwardAxis()
         {
             float retVal = forwardAxis;
-            forwardAxis = 0;
+            // forwardAxis = 0;
             return retVal;
         }
 
@@ -193,7 +193,7 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetNavSpeedButton()
         {
             bool retVal = navSpeedButton;
-            navSpeedButton = false;
+            // navSpeedButton = false;
             return retVal;
         }
 
@@ -210,7 +210,7 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetJumpButton()
         {
             bool retVal = jumpButton;
-            jumpButton = false;
+            // jumpButton = false;
             return retVal;
         }
 
@@ -227,7 +227,7 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetWandButton()
         {
             bool retVal = wandButton;
-            wandButton = false;
+            // wandButton = false;
             return retVal;
         }
 
@@ -244,7 +244,7 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetChangeWandButton()
         {
             bool retVal = changeWandButton;
-            changeWandButton = false;
+            // changeWandButton = false;
             return retVal;
         }
 
@@ -261,7 +261,7 @@ namespace ubc.ok.VEMS.gr3d
         public bool GetResetButton()
         {
             bool retVal = resetButton;
-            resetButton = false;
+            // resetButton = false;
             return retVal;
         }
 
@@ -287,7 +287,8 @@ namespace ubc.ok.VEMS.gr3d
 
             mqttClient.ApplicationMessageReceivedAsync += e =>
             {
-// Debug.Log($"{e.ApplicationMessage.ConvertPayloadToString()}  // {e.ApplicationMessage.ContentType}");
+                // Before processing any messages, reset values
+                ResetValues();
                 string payload = e.ApplicationMessage.ConvertPayloadToString();
                 switch (e.ApplicationMessage.Topic)
                 {
@@ -416,21 +417,21 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandLookButtonDown(string message)
         {
-            wandLookButtonDown = StringToBool(message);
+            wandLookButtonDown = true;
             wandLookButtonUp = false;
-            wandLookButton = false;
+            wandLookButton = wandLookButtonDown;
         }
 
         private void SetWandLookButtonUp(string message)
         {
             wandLookButtonDown = false;
-            wandLookButtonUp = StringToBool(message);
+            wandLookButtonUp = true;
             wandLookButton = false;
         }
 
         private void SetWandDriveButtonDown(string message)
         {
-            wandDriveButtonDown = StringToBool(message);
+            wandDriveButtonDown = true;
             wandDriveButtonUp = false;
             wandDriveButton = false;
         }
@@ -438,78 +439,100 @@ namespace ubc.ok.VEMS.gr3d
         private void SetWandDriveButtonUp(string message)
         {
             wandDriveButtonDown = false;
-            wandDriveButtonUp = StringToBool(message);
+            wandDriveButtonUp = true;
             wandDriveButton = false;
         }
 
         private void SetNavSpeedButtonDown(string message)
         {
-            navSpeedButtonDown = StringToBool(message);
+            navSpeedButtonDown = true;
             navSpeedButtonUp = false;
-            navSpeedButton = false;
+            navSpeedButton = navSpeedButtonDown;
         }
 
         private void SetNavSpeedButtonUp(string message)
         {
             navSpeedButtonDown = false;
-            navSpeedButtonUp = StringToBool(message);
+            navSpeedButtonUp = true;
             navSpeedButton = false;
         }
 
         private void SetJumpButtonDown(string message)
         {
-            jumpButtonDown = StringToBool(message);
+            jumpButtonDown = true;
             jumpButtonUp = false;
-            jumpButton = false;
+            jumpButton = jumpButtonDown;
         }
 
         private void SetJumpButtonUp(string message)
         {
             jumpButtonDown = false;
-            jumpButtonUp = StringToBool(message);
+            jumpButtonUp = true;
             jumpButton = false;
         }
 
         private void SetWandButtonDown(string message)
         {
-            wandButtonDown = StringToBool(message);
+            wandButtonDown = true;
             wandButtonUp = false;
-            wandButton = false;
+            wandButton = wandButtonDown;
         }
 
         private void SetWandButtonUp(string message)
         {
             wandButtonDown = false;
-            wandButtonUp = StringToBool(message);
+            wandButtonUp = true;
             wandButton = false;
         }
 
         private void SetChangeWandButtonDown(string message)
         {
-            changeWandButtonDown = StringToBool(message);
+            changeWandButtonDown = true;
             changeWandButtonUp = false;
-            changeWandButton = false;
+            changeWandButton = changeWandButtonDown;
         }
 
         private void SetChangeWandButtonUp(string message)
         {
             changeWandButtonDown = false;
-            changeWandButtonUp = StringToBool(message);
+            changeWandButtonUp = true;
             changeWandButton = false;
         }
 
         private void SetResetButtonDown(string message)
         {
-            resetButtonDown = StringToBool(message);
+            resetButtonDown = true;
             resetButtonUp = false;
-            resetButton = false;
+            resetButton = resetButtonDown;
         }
 
         private void SetResetButtonUp(string message)
         {
             resetButtonDown = false;
-            resetButtonUp = StringToBool(message);
+            resetButtonUp = true;
             resetButton = false;
+        }
+
+        private void ResetValues()
+        {
+            yawAxis = 0;
+            pitchAxis = 0;
+            wandLookButtonDown = false;
+            wandLookButtonUp = false;
+            wandDriveButtonDown = false;
+            wandDriveButtonUp = false;
+            strafeAxis = 0;
+            forwardAxis = 0;
+            navSpeedButtonDown = false;
+            navSpeedButtonUp = false;
+            jumpButtonDown = false;
+            jumpButtonUp = false;
+            wandButtonDown = false;
+            wandButtonUp = false;
+            changeWandButtonDown = false;
+            changeWandButtonUp = false;
+            resetButtonDown = false;
+            resetButtonUp = false;
         }
     #endregion
 
