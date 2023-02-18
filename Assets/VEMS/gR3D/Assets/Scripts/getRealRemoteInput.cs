@@ -6,7 +6,7 @@ using ubc.ok.VEMS.Utils;
 
 namespace ubc.ok.VEMS.gr3d
 {
-    public class getRealMessageHandler : getReal3D.MonoBehaviourWithRpc, PlayerInputs
+    public class getRealRemoteInput : getReal3D.MonoBehaviourWithRpc, PlayerInputs
     {
         private float yawAxis = 0;
         private float pitchAxis = 0;
@@ -35,6 +35,10 @@ namespace ubc.ok.VEMS.gr3d
         private bool resetButton = false;
         private Sensor wand = new Sensor();
         private Sensor head = new Sensor();
+
+        private DateTime lastMessaageTime = DateTime.Now;
+        // Reset values after 100 ms;
+        private TimeSpan resetTime = new TimeSpan(0, 0, 0, 0, 100);
 
         public MonoBehaviour behaviour => GetBehaviour();
 
@@ -104,6 +108,11 @@ namespace ubc.ok.VEMS.gr3d
 
         void Update()
         {
+            DateTime now = DateTime.Now;
+            if ((now - lastMessaageTime) > resetTime)
+            {
+                ResetValues();
+            }
         }
     #endregion
 
@@ -313,31 +322,31 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetYawAxis(string message)
         {
-            ResetValues();
+            MessageRecieved();
             yawAxis = StringToFloat(message);
         }
 
         private void SetPitchAxis(string message)
         {
-            ResetValues();
+            MessageRecieved();
             pitchAxis = StringToFloat(message);
         }
 
         private void SetStrafeAxis(string message)
         {
-            ResetValues();
+            MessageRecieved();
             strafeAxis = StringToFloat(message);
         }
     
         private void SetForwardAxis(string message)
         {
-            ResetValues();
+            MessageRecieved();
             forwardAxis = StringToFloat(message);
         }
 
         private void SetWandLookButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             wandLookButtonDown = true;
             wandLookButtonUp = false;
             wandLookButton = wandLookButtonDown;
@@ -345,7 +354,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandLookButtonUp(string message)
         {
-            ResetValues();
+            MessageRecieved();
             wandLookButtonDown = false;
             wandLookButtonUp = true;
             wandLookButton = false;
@@ -353,7 +362,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandDriveButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             wandDriveButtonDown = true;
             wandDriveButtonUp = false;
             wandDriveButton = false;
@@ -361,7 +370,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandDriveButtonUp(string message)
         {
-            ResetValues();
+            MessageRecieved();
             wandDriveButtonDown = false;
             wandDriveButtonUp = true;
             wandDriveButton = false;
@@ -369,7 +378,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetNavSpeedButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             navSpeedButtonDown = true;
             navSpeedButtonUp = false;
             navSpeedButton = navSpeedButtonDown;
@@ -377,7 +386,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetNavSpeedButtonUp(string message)
         {
-            ResetValues();
+            MessageRecieved();
             navSpeedButtonDown = false;
             navSpeedButtonUp = true;
             navSpeedButton = false;
@@ -385,7 +394,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetJumpButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             jumpButtonDown = true;
             jumpButtonUp = false;
             jumpButton = jumpButtonDown;
@@ -393,7 +402,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetJumpButtonUp(string message)
         {
-            ResetValues();
+            MessageRecieved();
             jumpButtonDown = false;
             jumpButtonUp = true;
             jumpButton = false;
@@ -401,7 +410,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             wandButtonDown = true;
             wandButtonUp = false;
             wandButton = wandButtonDown;
@@ -409,7 +418,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandButtonUp(string message)
         {
-            ResetValues();
+            MessageRecieved();
             wandButtonDown = false;
             wandButtonUp = true;
             wandButton = false;
@@ -417,7 +426,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetChangeWandButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             changeWandButtonDown = true;
             changeWandButtonUp = false;
             changeWandButton = changeWandButtonDown;
@@ -425,7 +434,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetChangeWandButtonUp(string message)
         {
-            ResetValues();
+            MessageRecieved();
             changeWandButtonDown = false;
             changeWandButtonUp = true;
             changeWandButton = false;
@@ -433,7 +442,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetResetButtonDown(string message)
         {
-            ResetValues();
+            MessageRecieved();
             resetButtonDown = true;
             resetButtonUp = false;
             resetButton = resetButtonDown;
@@ -469,6 +478,11 @@ namespace ubc.ok.VEMS.gr3d
             changeWandButtonUp = false;
             resetButtonDown = false;
             resetButtonUp = false;
+        }
+
+        private void MessageRecieved()
+        {
+            lastMessaageTime = DateTime.Now;
         }
     #endregion
 
