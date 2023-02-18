@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace ubc.ok.VEMS.gr3d
@@ -84,6 +85,7 @@ namespace ubc.ok.VEMS.gr3d
         }
     }
 
+    [Serializable]
     public class InteractableEvent: UnityEvent<GameObject>
     {}
 }

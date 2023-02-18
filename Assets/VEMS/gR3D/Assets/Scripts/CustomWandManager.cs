@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -73,9 +74,16 @@ namespace ubc.ok.VEMS.gr3d
         public void PointerInteraction()
         {
             RaycastHit hit;
-            if (m_currentWand != null && Physics.Raycast(m_currentWand.position, m_currentWand.up, out hit, 100, LayerMask.NameToLayer("Interactable")))
+            if (m_currentWand != null)
             {
-                Interactable interactable = hit.transform.GetComponent<Interactable>();
+                bool hasHit = Physics.Raycast(m_currentWand.position, m_currentWand.up, out hit, LayerMask.NameToLayer("Interactable"));
+
+                Interactable interactable = null;
+                if (hasHit)
+                {
+                    interactable = hit.transform.GetComponent<Interactable>();
+                }
+
                 if (m_currentInteractable != interactable)
                 {
                     m_currentInteractable?.HoverExit();
@@ -89,7 +97,7 @@ namespace ubc.ok.VEMS.gr3d
                     {
                         m_currentInteractable.SelectionEnter();
                     }
-                    if (m_playerInputs.WandLookButtonUp)
+                    if (m_playerInputs.WandButtonUp)
                     {
                         m_currentInteractable.SelectionExit();
                     }
@@ -98,6 +106,7 @@ namespace ubc.ok.VEMS.gr3d
         }
     }
 
+    [Serializable]
     public class WandEvent: UnityEvent<GameObject>
     {}
 }
