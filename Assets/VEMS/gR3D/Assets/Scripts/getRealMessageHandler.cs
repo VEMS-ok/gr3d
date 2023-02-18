@@ -1,13 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using getReal3D;
-using MQTTnet;
-using MQTTnet.Client;
-using MQTTnet.Packets;
-using MQTTnet.Protocol;
-using System.Threading.Tasks;
 using System;
+using ubc.ok.VEMS.Utils;
 
 namespace ubc.ok.VEMS.gr3d
 {
@@ -279,108 +274,29 @@ namespace ubc.ok.VEMS.gr3d
     #region MQTT
         async void SetupMessageHandlers()
         {
-            MqttFactory mqttFactory = new MqttFactory();
-
-            IMqttClient mqttClient = mqttFactory.CreateMqttClient();
-        
-            MqttClientOptions mqttClientOptions = new MqttClientOptionsBuilder().WithTcpServer("127.0.0.1", 80).Build();
-
-            mqttClient.ApplicationMessageReceivedAsync += e =>
+            Dictionary<string, Action<string>> subscriptions = new Dictionary<string, Action<string>>()
             {
-                // Before processing any messages, reset values
-                ResetValues();
-                string payload = e.ApplicationMessage.ConvertPayloadToString();
-                switch (e.ApplicationMessage.Topic)
-                {
-                    case "/getReal3D/yawAxis":
-                        SetYawAxis(payload);
-                        break;
-                    case "/getReal3D/pitchAxis":
-                        SetPitchAxis(payload);
-                        break;
-                    case "/getReal3D/strafeAxis":
-                        SetStrafeAxis(payload);
-                        break;
-                    case "/getReal3D/forwardAxis":
-                        SetForwardAxis(payload);
-                        break;
-                    case "/getReal3D/wandLookButtonDown":
-                        SetWandLookButtonDown(payload);
-                        break;
-                    case "/getReal3D/wandLookButtonUp":
-                        SetWandLookButtonUp(payload);
-                        break;
-                    case "/getReal3D/wandDriveButtonDown":
-                        SetWandDriveButtonDown(payload);
-                        break;
-                    case "/getReal3D/wandDriveButtonUp":
-                        SetWandDriveButtonUp(payload);
-                        break;
-                    case "/getReal3D/navSpeedButtonDown":
-                        SetNavSpeedButtonDown(payload);
-                        break;
-                    case "/getReal3D/navSpeedButtonUp":
-                        SetNavSpeedButtonUp(payload);
-                        break;
-                    case "/getReal3D/jumpButtonDown":
-                        SetJumpButtonDown(payload);
-                        break;
-                    case "/getReal3D/jumpButtonUp":
-                        SetJumpButtonUp(payload);
-                        break;
-                    case "/getReal3D/wandButtonDown":
-                        SetWandButtonDown(payload);
-                        break;
-                    case "/getReal3D/wandButtonUp":
-                        SetWandButtonUp(payload);
-                        break;
-                    case "/getReal3D/changeWandButtonDown":
-                        SetChangeWandButtonDown(payload);
-                        break;
-                    case "/getReal3D/changeWandButtonUp":
-                        SetChangeWandButtonUp(payload);
-                        break;
-                    case "/getReal3D/resetButtonDown":
-                        SetResetButtonDown(payload);
-                        break;
-                    case "/getReal3D/resetButtonUp":
-                        SetResetButtonUp(payload);
-                        break;
-                }
-                return System.Threading.Tasks.Task.CompletedTask;
+                {"/getReal3D/yawAxis", SetYawAxis},
+                {"/getReal3D/pitchAxis", SetPitchAxis},
+                {"/getReal3D/strafeAxis", SetStrafeAxis},
+                {"/getReal3D/forwardAxis", SetForwardAxis},
+                {"/getReal3D/wandLookButtonDown", SetWandLookButtonDown},
+                {"/getReal3D/wandLookButtonUp", SetWandLookButtonUp},
+                {"/getReal3D/wandDriveButtonDown", SetWandDriveButtonDown},
+                {"/getReal3D/wandDriveButtonUp", SetWandDriveButtonUp},
+                {"/getReal3D/navSpeedButtonDown", SetNavSpeedButtonDown},
+                {"/getReal3D/navSpeedButtonUp", SetNavSpeedButtonUp},
+                {"/getReal3D/jumpButtonDown", SetJumpButtonDown},
+                {"/getReal3D/jumpButtonUp", SetJumpButtonUp},
+                {"/getReal3D/wandButtonDown", SetWandButtonDown},
+                {"/getReal3D/wandButtonUp", SetWandButtonUp},
+                {"/getReal3D/changeWandButtonDown", SetChangeWandButtonDown},
+                {"/getReal3D/changeWandButtonUp", SetChangeWandButtonUp},
+                {"/getReal3D/resetButtonDown", SetResetButtonDown},
+                {"/getReal3D/resetButtonUp", SetResetButtonUp}
             };
 
-            await mqttClient.ConnectAsync(mqttClientOptions);
-
-            // Create the subscribe options including several topics with different options.
-            // It is also possible to all of these topics using a dedicated call of _SubscribeAsync_ per topic.
-            MqttClientSubscribeOptions mqttSubscribeOptions = mqttFactory.CreateSubscribeOptionsBuilder()
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/yawAxis");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/pitchAxis");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/strafeAxis");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/forwardAxis");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/wandLookButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/wandLookButtonUp");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/wandDriveButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/wandDriveButtonUp");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/navSpeedButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/navSpeedButtonUp");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/jumpButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/jumpButtonUp");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/wandButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/wandButtonUp");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/changeWandButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/changeWandButtonUp");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/resetButtonDown");})
-                .WithTopicFilter(f => {f.WithTopic("/getReal3D/resetButtonUp");})
-                .Build();
-
-            MqttClientSubscribeResult response = await mqttClient.SubscribeAsync(mqttSubscribeOptions);
-
-            Debug.Log("MQTT client subscribed to topics.");
-
-            // The response contains additional data sent by the server after subscribing.
-            // Debug.Log($"{response.ReasonString} " + string.Join(", ",response.Items));
+            MessageClient.Instance.AddSubscriptions(subscriptions);
         }
 
 
@@ -397,26 +313,31 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetYawAxis(string message)
         {
+            ResetValues();
             yawAxis = StringToFloat(message);
         }
 
         private void SetPitchAxis(string message)
         {
+            ResetValues();
             pitchAxis = StringToFloat(message);
         }
 
         private void SetStrafeAxis(string message)
         {
+            ResetValues();
             strafeAxis = StringToFloat(message);
         }
     
         private void SetForwardAxis(string message)
         {
+            ResetValues();
             forwardAxis = StringToFloat(message);
         }
 
         private void SetWandLookButtonDown(string message)
         {
+            ResetValues();
             wandLookButtonDown = true;
             wandLookButtonUp = false;
             wandLookButton = wandLookButtonDown;
@@ -424,6 +345,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandLookButtonUp(string message)
         {
+            ResetValues();
             wandLookButtonDown = false;
             wandLookButtonUp = true;
             wandLookButton = false;
@@ -431,6 +353,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandDriveButtonDown(string message)
         {
+            ResetValues();
             wandDriveButtonDown = true;
             wandDriveButtonUp = false;
             wandDriveButton = false;
@@ -438,6 +361,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandDriveButtonUp(string message)
         {
+            ResetValues();
             wandDriveButtonDown = false;
             wandDriveButtonUp = true;
             wandDriveButton = false;
@@ -445,6 +369,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetNavSpeedButtonDown(string message)
         {
+            ResetValues();
             navSpeedButtonDown = true;
             navSpeedButtonUp = false;
             navSpeedButton = navSpeedButtonDown;
@@ -452,6 +377,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetNavSpeedButtonUp(string message)
         {
+            ResetValues();
             navSpeedButtonDown = false;
             navSpeedButtonUp = true;
             navSpeedButton = false;
@@ -459,6 +385,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetJumpButtonDown(string message)
         {
+            ResetValues();
             jumpButtonDown = true;
             jumpButtonUp = false;
             jumpButton = jumpButtonDown;
@@ -466,6 +393,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetJumpButtonUp(string message)
         {
+            ResetValues();
             jumpButtonDown = false;
             jumpButtonUp = true;
             jumpButton = false;
@@ -473,6 +401,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandButtonDown(string message)
         {
+            ResetValues();
             wandButtonDown = true;
             wandButtonUp = false;
             wandButton = wandButtonDown;
@@ -480,6 +409,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetWandButtonUp(string message)
         {
+            ResetValues();
             wandButtonDown = false;
             wandButtonUp = true;
             wandButton = false;
@@ -487,6 +417,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetChangeWandButtonDown(string message)
         {
+            ResetValues();
             changeWandButtonDown = true;
             changeWandButtonUp = false;
             changeWandButton = changeWandButtonDown;
@@ -494,6 +425,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetChangeWandButtonUp(string message)
         {
+            ResetValues();
             changeWandButtonDown = false;
             changeWandButtonUp = true;
             changeWandButton = false;
@@ -501,6 +433,7 @@ namespace ubc.ok.VEMS.gr3d
 
         private void SetResetButtonDown(string message)
         {
+            ResetValues();
             resetButtonDown = true;
             resetButtonUp = false;
             resetButton = resetButtonDown;
@@ -513,6 +446,9 @@ namespace ubc.ok.VEMS.gr3d
             resetButton = false;
         }
 
+        /// <summary>
+        /// Before processing any messages, reset values with this function.
+        /// </summary>
         private void ResetValues()
         {
             yawAxis = 0;
