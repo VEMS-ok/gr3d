@@ -9,7 +9,7 @@ namespace ubc.ok.VEMS.gr3d
     [RequireComponent(typeof(PlayerInputs))]
     public class CustomGrabbingWand: GenericGrabbingWand
     {
-        private GameObject grabObject = null;
+        private GameObject m_grabObject = null;
         private PlayerInputs m_playerInputs;
 
         [Tooltip("Eventcallback when object was grabbed.")]
@@ -30,16 +30,16 @@ namespace ubc.ok.VEMS.gr3d
 
         void DropObject()
         {
-            if(grabObject != null) {
+            if(m_grabObject != null) {
                 // If the object has the GrabbedObject behavior, tell it to drop
-                GrabbedObject grabbedObject = grabObject.GetComponent<GrabbedObject>();
+                GrabbedObject grabbedObject = m_grabObject.GetComponent<GrabbedObject>();
                 if (grabbedObject)
                 {
                     grabbedObject.dropObject(ReparentTransform);
-                    onDropped.Invoke(grabObject);
+                    onDropped.Invoke(m_grabObject);
                 }
 
-                grabObject = null;
+                m_grabObject = null;
             }
         }
 
@@ -56,7 +56,7 @@ namespace ubc.ok.VEMS.gr3d
                 DropObject();
             }
             // If the wand button was pressed and we're not already grabbing something, test for objects to grab
-            else if(grabObject == null && m_playerInputs.WandButtonDown) {
+            else if(m_grabObject == null && m_playerInputs.WandButtonDown) {
                 // Raycast test for objects to grab
                 RaycastHit hit = new RaycastHit();
                 bool hitTest = Physics.Raycast(Wand.parent.position, Wand.parent.forward, out hit, 2.0f, grabLayerMask);
@@ -72,17 +72,17 @@ namespace ubc.ok.VEMS.gr3d
                     if(!rb)
                         return;
 
-                    grabObject = rb.gameObject;
+                    m_grabObject = rb.gameObject;
 
                     // Add the GrabbedObject behavior(script) to the object if it hasn't already been grabbed by someone else
-                    GrabbedObject grabbedObject = grabObject.GetComponent<GrabbedObject>();
+                    GrabbedObject grabbedObject = m_grabObject.GetComponent<GrabbedObject>();
                     if(!grabbedObject) {
-                        grabbedObject = grabObject.AddComponent<GrabbedObject>();
+                        grabbedObject = m_grabObject.AddComponent<GrabbedObject>();
                     }
 
                     // Grab the object
                     grabbedObject.grabObject(ReparentTransform, allowGrabSteal);
-                    onGrabbed.Invoke(grabObject);
+                    onGrabbed.Invoke(m_grabObject);
                 }
             }
         }
