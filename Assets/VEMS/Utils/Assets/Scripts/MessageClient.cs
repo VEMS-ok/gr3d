@@ -8,6 +8,10 @@ namespace ubc.ok.VEMS.Utils
 {
     public class MessageClient: MonoBehaviour
     {
+        // NOTE: hardcoding these as these are not expected to change!
+        private const string BROKER_ADDRESS = "vemslab.ok.ubc.ca";
+        private const int BROKER_PORT = 80;
+
         private static MessageClient instance = null;
         public static MessageClient Instance {
             get {
@@ -25,10 +29,16 @@ namespace ubc.ok.VEMS.Utils
             }
         }
 
-        [Tooltip("The server address of the MQTT broker.")]
-        public string serverAddress = "127.0.0.1";
-        [Tooltip("The port of the MQTT broker.")]
-        public int port = 80;
+        [Tooltip("The server address of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.")]
+        /// <summary>
+        /// The server address of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.
+        /// </summary>
+        public string testServerAddress = "127.0.0.1";
+        [Tooltip("The port of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.")]
+        /// <summary>
+        /// The port of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.
+        /// </summary>
+        public int testPort = 80;
 
         private Dictionary<string, List<Action<string>>> subsciptions = new Dictionary<string, List<Action<string>>>();
         IMqttClient mqttClient;
@@ -110,7 +120,18 @@ namespace ubc.ok.VEMS.Utils
 
             mqttClient = mqttFactory.CreateMqttClient();
 
-            MqttClientOptions mqttClientOptions = new MqttClientOptionsBuilder().WithTcpServer("127.0.0.1", 80).Build();
+            string _serverAddress;
+            int _port;
+
+#if UNITY_EDITOR
+            _serverAddress = testServerAddress;
+            _port = testPort;
+#else
+            _serverAddress = BROKER_ADDRESS;
+            _port = BROKER_PORT;
+#endif
+
+            MqttClientOptions mqttClientOptions = new MqttClientOptionsBuilder().WithTcpServer(_serverAddress, _port).Build();
 
             mqttClient.ApplicationMessageReceivedAsync += e =>
             {
@@ -141,10 +162,7 @@ namespace ubc.ok.VEMS.Utils
             // Create the subscribe options including several topics with different options.
             // It is also possible to all of these topics using a dedicated call of _SubscribeAsync_ per topic.
             MqttClientSubscribeOptionsBuilder mqttSubscribeOptionsBuilder = mqttFactory.CreateSubscribeOptionsBuilder();
-            foreach (string topic in subsciptions.Keys)
-            {
-                mqttSubscribeOptionsBuilder = mqttSubscribeOptionsBuilder.WithTopicFilter(f => { f.WithTopic(topic); });
-            }
+            mqttSubscribeOptionsBuilder = mqttSubscribeOptionsBuilder.WithTopicFilter(f => { f.WithTopic("#"); });
 
             MqttClientSubscribeOptions mqttSubscribeOptions = mqttSubscribeOptionsBuilder.Build();
 

@@ -40,6 +40,9 @@ namespace ubc.ok.VEMS.gr3d
         // Reset values after 100 ms;
         private TimeSpan resetTime = new TimeSpan(0, 0, 0, 0, 100);
 
+        [Tooltip("The root topic of this client.")]
+        public string rootTopic = "getReal3D";
+
         public MonoBehaviour behaviour => GetBehaviour();
 
         public float YawAxis => GetYawAxis();
@@ -97,7 +100,7 @@ namespace ubc.ok.VEMS.gr3d
         public Sensor Head => GetHead();
 
     #region Unity functions
-        void Start()
+        protected void Start()
         {
             // if(getReal3D.Cluster.isMaster)
             // {
@@ -106,7 +109,7 @@ namespace ubc.ok.VEMS.gr3d
             SetupMessageHandlers();
         }
 
-        void Update()
+        protected void Update()
         {
             DateTime now = DateTime.Now;
             if ((now - lastMessaageTime) > resetTime)
@@ -281,28 +284,28 @@ namespace ubc.ok.VEMS.gr3d
     #endregion
 
     #region MQTT
-        async void SetupMessageHandlers()
+        void SetupMessageHandlers()
         {
             Dictionary<string, Action<string>> subscriptions = new Dictionary<string, Action<string>>()
             {
-                {"/getReal3D/yawAxis", SetYawAxis},
-                {"/getReal3D/pitchAxis", SetPitchAxis},
-                {"/getReal3D/strafeAxis", SetStrafeAxis},
-                {"/getReal3D/forwardAxis", SetForwardAxis},
-                {"/getReal3D/wandLookButtonDown", SetWandLookButtonDown},
-                {"/getReal3D/wandLookButtonUp", SetWandLookButtonUp},
-                {"/getReal3D/wandDriveButtonDown", SetWandDriveButtonDown},
-                {"/getReal3D/wandDriveButtonUp", SetWandDriveButtonUp},
-                {"/getReal3D/navSpeedButtonDown", SetNavSpeedButtonDown},
-                {"/getReal3D/navSpeedButtonUp", SetNavSpeedButtonUp},
-                {"/getReal3D/jumpButtonDown", SetJumpButtonDown},
-                {"/getReal3D/jumpButtonUp", SetJumpButtonUp},
-                {"/getReal3D/wandButtonDown", SetWandButtonDown},
-                {"/getReal3D/wandButtonUp", SetWandButtonUp},
-                {"/getReal3D/changeWandButtonDown", SetChangeWandButtonDown},
-                {"/getReal3D/changeWandButtonUp", SetChangeWandButtonUp},
-                {"/getReal3D/resetButtonDown", SetResetButtonDown},
-                {"/getReal3D/resetButtonUp", SetResetButtonUp}
+                {$"{rootTopic}/yawAxis", SetYawAxis},
+                {$"{rootTopic}/pitchAxis", SetPitchAxis},
+                {$"{rootTopic}/strafeAxis", SetStrafeAxis},
+                {$"{rootTopic}/forwardAxis", SetForwardAxis},
+                {$"{rootTopic}/wandLookButtonDown", SetWandLookButtonDown},
+                {$"{rootTopic}/wandLookButtonUp", SetWandLookButtonUp},
+                {$"{rootTopic}/wandDriveButtonDown", SetWandDriveButtonDown},
+                {$"{rootTopic}/wandDriveButtonUp", SetWandDriveButtonUp},
+                {$"{rootTopic}/navSpeedButtonDown", SetNavSpeedButtonDown},
+                {$"{rootTopic}/navSpeedButtonUp", SetNavSpeedButtonUp},
+                {$"{rootTopic}/jumpButtonDown", SetJumpButtonDown},
+                {$"{rootTopic}/jumpButtonUp", SetJumpButtonUp},
+                {$"{rootTopic}/wandButtonDown", SetWandButtonDown},
+                {$"{rootTopic}/wandButtonUp", SetWandButtonUp},
+                {$"{rootTopic}/changeWandButtonDown", SetChangeWandButtonDown},
+                {$"{rootTopic}/changeWandButtonUp", SetChangeWandButtonUp},
+                {$"{rootTopic}/resetButtonDown", SetResetButtonDown},
+                {$"{rootTopic}/resetButtonUp", SetResetButtonUp}
             };
 
             MessageClient.Instance.AddSubscriptions(subscriptions);
@@ -458,7 +461,7 @@ namespace ubc.ok.VEMS.gr3d
         /// <summary>
         /// Before processing any messages, reset values with this function.
         /// </summary>
-        private void ResetValues()
+        protected void ResetValues()
         {
             yawAxis = 0;
             pitchAxis = 0;
@@ -480,7 +483,7 @@ namespace ubc.ok.VEMS.gr3d
             resetButtonUp = false;
         }
 
-        private void MessageRecieved()
+        protected void MessageRecieved()
         {
             lastMessaageTime = DateTime.Now;
         }
