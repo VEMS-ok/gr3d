@@ -25,4 +25,5 @@ The Player prefab is a modified version of the `GenericPlayer` prefab in the get
 #### `CustomWandManager`
 #### `Interactables`
 #### `WandPitchAxis`
-#### `getRealMessageHandler`
+#### `getRealRemoteInput`
+#### `MessageClient`
