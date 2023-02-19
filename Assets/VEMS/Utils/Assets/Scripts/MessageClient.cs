@@ -49,12 +49,12 @@ namespace ubc.ok.VEMS.Utils
         /// <summary>
         /// The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.
         /// <example>
-        ///   <code>
-        ///     MessageClient.Instance.AddSubscriptions(new Dictionary<string, Action<string>>()
-        ///     {
-        ///         {"/myCustomMessage/messageX", payload => {Debug.Log(payload);}}
-        ///     });
-        ///   </code>
+        /// @code
+        ///   MessageClient.Instance.AddSubscriptions(new Dictionary<string, Action<string>>()
+        ///   {
+        ///       {"/myCustomMessage/messageX", payload => {Debug.Log(payload);}}
+        ///   });
+        /// @endcode
         /// </example>
         /// </summary>
         /// <param name="subscribingTopicHandlers">

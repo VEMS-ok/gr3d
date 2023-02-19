@@ -26,6 +26,9 @@ var NAVTREE =
 [
   [ "getReal3D Extentions", "index.html", [
     [ "getReal3D Extensions", "index.html", "index" ],
+    [ "Prefabs", "md__local_docs_prefabs.html", [
+      [ "Player", "md__local_docs_prefabs.html#autotoc_md5", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
