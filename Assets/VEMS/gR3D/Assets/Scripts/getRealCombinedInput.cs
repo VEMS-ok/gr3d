@@ -1,14 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using getReal3D;
-using ubc.ok.VEMS.Utils;
 
 namespace ubc.ok.VEMS.gr3d
 {
+    /// <summary>
+    /// Combine multiple different classes that implement the `PlayerInputs` interface. Hence, this can be used as a dropin
+    /// replacement for anywhere the `PlayerInputs` is used. Add the different PlayerInputs classes to `playerInputsComponents`.
+    /// Note tha each class that implements the PlayerInput would have to be in its own GameObject for this to work.
+    /// Currently, the `Wand` and `Head` would simply return only the values from the first component in `playerInputsComponents`.
+    /// </summary>
     public class getRealCombinedInput : getReal3D.MonoBehaviourWithRpc, PlayerInputs
     {
         [Tooltip("Combines the inputs from multiple PlayerInputs. Precedence order is the same as the order in this list (i.e., first one with a default input returns the value.). Each gameObject in the list is expected to have a PlayerInput attached to it.")]
+        /// <summary>
+        /// Combines the inputs from multiple PlayerInputs. Precedence order is the same as the order in this list (i.e., first one with a default input returns the value.). Each gameObject in the list is expected to have a PlayerInput attached to it.
+        /// </summary>
         public List<Transform> playerInputsComponents;
 
         private List<PlayerInputs> playerInputs;

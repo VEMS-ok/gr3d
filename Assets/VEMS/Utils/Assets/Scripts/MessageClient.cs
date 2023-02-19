@@ -6,6 +6,14 @@ using System;
 
 namespace ubc.ok.VEMS.Utils
 {
+    /// <summary>
+    /// This class allows connecting to an MQTTServer and await messages. This is also a singleton, which allows accessing an
+    /// instance of this from anywhere in code. For this to work, it needs to be added as a component within the scene.
+    /// The `Player` prefab has a MessageClient configured which can be accessed with `MessageClient.Instance` 
+    ///
+    /// The `testServerAddress` and `testPort` can be set to use a test server while developing in Editor, once built
+    /// it will use predefined servers of VEMS.
+    /// </summary>
     public class MessageClient: MonoBehaviour
     {
         // NOTE: hardcoding these as these are not expected to change!

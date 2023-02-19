@@ -113,6 +113,9 @@ $(document).ready(function(){initNavTree('classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1
   <div class="headertitle"><div class="title">ubc.ok.VEMS.Utils.MessageClient Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class allows connecting to an MQTTServer and await messages. This is also a singleton, which allows accessing an instance of this from anywhere in code. For this to work, it needs to be added as a component within the scene. The <code>Player</code> prefab has a MessageClient configured which can be accessed with <code>MessageClient.Instance</code>  
+ <a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ubc.ok.VEMS.Utils.MessageClient:</div>
 <div class="dyncontent">
@@ -131,12 +134,14 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2951c01784ec83ec1e1fb95d714ad938"><td class="memItemLeft" align="right" valign="top"><a id="a2951c01784ec83ec1e1fb95d714ad938" name="a2951c01784ec83ec1e1fb95d714ad938"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>serverAddress</b> = &quot;127.0.0.1&quot;</td></tr>
-<tr class="separator:a2951c01784ec83ec1e1fb95d714ad938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a298d69c3ec4d6114afba063b36a816"><td class="memItemLeft" align="right" valign="top"><a id="a4a298d69c3ec4d6114afba063b36a816" name="a4a298d69c3ec4d6114afba063b36a816"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>port</b> = 80</td></tr>
-<tr class="separator:a4a298d69c3ec4d6114afba063b36a816"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5313dbf39c38c77d724b7a04650a8c"><td class="memItemLeft" align="right" valign="top"><a id="a7e5313dbf39c38c77d724b7a04650a8c" name="a7e5313dbf39c38c77d724b7a04650a8c"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>testServerAddress</b> = &quot;127.0.0.1&quot;</td></tr>
+<tr class="memdesc:a7e5313dbf39c38c77d724b7a04650a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The server address of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built. <br /></td></tr>
+<tr class="separator:a7e5313dbf39c38c77d724b7a04650a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a823ba4ba542f7edb66dadaee8b9b7"><td class="memItemLeft" align="right" valign="top"><a id="a99a823ba4ba542f7edb66dadaee8b9b7" name="a99a823ba4ba542f7edb66dadaee8b9b7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>testPort</b> = 80</td></tr>
+<tr class="memdesc:a99a823ba4ba542f7edb66dadaee8b9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The port of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built. <br /></td></tr>
+<tr class="separator:a99a823ba4ba542f7edb66dadaee8b9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -144,7 +149,10 @@ Properties</h2></td></tr>
 static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html">MessageClient</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b><code> [get]</code></td></tr>
 <tr class="separator:ab4140113d1557691e123d54bfcfef842"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class allows connecting to an MQTTServer and await messages. This is also a singleton, which allows accessing an instance of this from anywhere in code. For this to work, it needs to be added as a component within the scene. The <code>Player</code> prefab has a MessageClient configured which can be accessed with <code>MessageClient.Instance</code> </p>
+<p>The <code>testServerAddress</code> and <code>testPort</code> can be set to use a test server while developing in Editor, once built it will use predefined servers of VEMS. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4317559134f9857dba66fad146202119" name="a4317559134f9857dba66fad146202119"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4317559134f9857dba66fad146202119">&#9670;&#160;</a></span>AddSubscriptions() <span class="overload">[1/2]</span></h2>
 
@@ -174,8 +182,8 @@ static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_clie
 <div class="line">{</div>
 <div class="line">    {<span class="stringliteral">&quot;/myCustomMessage/messageX&quot;</span>, payload =&gt; {Debug.Log(payload);}}</div>
 <div class="line">});</div>
-<div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html">ubc.ok.VEMS.Utils.MessageClient</a></div><div class="ttdef"><b>Definition:</b> MessageClient.cs:10</div></div>
-<div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html_a4317559134f9857dba66fad146202119"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a4317559134f9857dba66fad146202119">ubc.ok.VEMS.Utils.MessageClient.AddSubscriptions</a></div><div class="ttdeci">void AddSubscriptions(Dictionary&lt; string, Action&lt; string &gt; &gt; subscribingTopicHandlers)</div><div class="ttdoc">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.</div><div class="ttdef"><b>Definition:</b> MessageClient.cs:64</div></div>
+<div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html">ubc.ok.VEMS.Utils.MessageClient</a></div><div class="ttdoc">This class allows connecting to an MQTTServer and await messages. This is also a singleton,...</div><div class="ttdef"><b>Definition:</b> MessageClient.cs:18</div></div>
+<div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html_a4317559134f9857dba66fad146202119"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a4317559134f9857dba66fad146202119">ubc.ok.VEMS.Utils.MessageClient.AddSubscriptions</a></div><div class="ttdeci">void AddSubscriptions(Dictionary&lt; string, Action&lt; string &gt; &gt; subscribingTopicHandlers)</div><div class="ttdoc">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.</div><div class="ttdef"><b>Definition:</b> MessageClient.cs:82</div></div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">subscribingTopicHandlers</td><td>A dictionary, where a given key is the topic and the value of the key is a System.Action that takes the payload (string) as a parameter. </td></tr>

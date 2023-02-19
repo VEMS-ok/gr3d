@@ -6,6 +6,54 @@ using ubc.ok.VEMS.Utils;
 
 namespace ubc.ok.VEMS.gr3d
 {
+    /// <summary>
+    /// A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface,
+    /// hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message:
+    /// - "{rootTopic}/yawAxis"
+    /// - "{rootTopic}/pitchAxis"
+    /// - "{rootTopic}/strafeAxis"
+    /// - "{rootTopic}/forwardAxis"
+    /// - "{rootTopic}/wandLookButtonDown"
+    /// - "{rootTopic}/wandLookButtonUp"
+    /// - "{rootTopic}/wandDriveButtonDown"
+    /// - "{rootTopic}/wandDriveButtonUp"
+    /// - "{rootTopic}/navSpeedButtonDown"
+    /// - "{rootTopic}/navSpeedButtonUp"
+    /// - "{rootTopic}/jumpButtonDown"
+    /// - "{rootTopic}/jumpButtonUp"
+    /// - "{rootTopic}/wandButtonDown"
+    /// - "{rootTopic}/wandButtonUp"
+    /// - "{rootTopic}/changeWandButtonDown"
+    /// - "{rootTopic}/changeWandButtonUp"
+    /// - "{rootTopic}/resetButtonDown"
+    /// - "{rootTopic}/resetButtonUp"
+    ///
+    /// Where "{rootTopic}" is the value set for `rootTopic`. By default this is "getReal3D"
+    /// NOTE: Doesn't handle the `Wand` and `Head` fields of the `PlayerInterface`
+    ///
+    /// If `setupOnStart` is false, the `SetupSubscriptions` method will have to be manually called to subscribe.
+    ///
+    /// Whenever a new message is recieved or after waiting for 100 ms, the following values are set to the
+    /// default values shown:
+    ///   YawAxis = 0;
+    ///   PitchAxis = 0;
+    ///   WandLookButtonDown = false;
+    ///   WandLookButtonUp = false;
+    ///   WandDriveButtonDown = false;
+    ///   WandDriveButtonUp = false;
+    ///   StrafeAxis = 0;
+    ///   ForwardAxis = 0;
+    ///   NavSpeedButtonDown = false;
+    ///   NavSpeedButtonUp = false;
+    ///   JumpButtonDown = false;
+    ///   JumpButtonUp = false;
+    ///   WandButtonDown = false;
+    ///   WandButtonUp = false;
+    ///   ChangeWandButtonDown = false;
+    ///   ChangeWandButtonUp = false;
+    ///   ResetButtonDown = false;
+    ///   ResetButtonUp = false;
+    /// </summary>
     public class getRealRemoteInput : getReal3D.MonoBehaviourWithRpc, PlayerInputs
     {
         private float yawAxis = 0;
@@ -40,7 +88,15 @@ namespace ubc.ok.VEMS.gr3d
         // Reset values after 100 ms;
         private TimeSpan resetTime = new TimeSpan(0, 0, 0, 0, 100);
 
+        [Tooltip("Setup subscription on startup?")]
+        /// <summary>
+        /// If set to `true`, will call the `SetupSubscription` method within `Start`.
+        /// </summary>
+        public bool setupOnStart = true;
         [Tooltip("The root topic of this client.")]
+        /// <summary>
+        /// The root topic of the client.
+        /// </summary>
         public string rootTopic = "getReal3D";
 
         public MonoBehaviour behaviour => GetBehaviour();
@@ -106,11 +162,15 @@ namespace ubc.ok.VEMS.gr3d
             // {
             //     // CallRpc("SetupMessageHandlers");
             // }
-            SetupMessageHandlers();
+            if (setupOnStart)
+            {
+                SetupMessageHandlers();
+            }
         }
 
         protected void Update()
         {
+            // If the time lapsed since the last message is above set threshold, reset the values.
             DateTime now = DateTime.Now;
             if ((now - lastMessaageTime) > resetTime)
             {
@@ -284,7 +344,10 @@ namespace ubc.ok.VEMS.gr3d
     #endregion
 
     #region MQTT
-        void SetupMessageHandlers()
+        /// <summary>
+        /// Subscribes to the topics with the root topic being the value set for `rootTopic`. See the documentation of `getRealRemoteInput` for messages subscribed to.
+        /// </summary>
+        public void SetupMessageHandlers()
         {
             Dictionary<string, Action<string>> subscriptions = new Dictionary<string, Action<string>>()
             {
@@ -483,6 +546,9 @@ namespace ubc.ok.VEMS.gr3d
             resetButtonUp = false;
         }
 
+        /// <summary>
+        /// Method used to indicate the message is received. Sets the time of last message.
+        /// </summary>
         protected void MessageRecieved()
         {
             lastMessaageTime = DateTime.Now;

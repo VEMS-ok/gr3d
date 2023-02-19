@@ -126,16 +126,23 @@ Inheritance diagram for ubc.ok.VEMS.gr3d.ColorBehaviour:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a37e102497d29543a18e1874e0f705bfb"><td class="memItemLeft" align="right" valign="top"><a id="a37e102497d29543a18e1874e0f705bfb" name="a37e102497d29543a18e1874e0f705bfb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>EnableColor</b> ()</td></tr>
+<tr class="memdesc:a37e102497d29543a18e1874e0f705bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the color configured. If EnableColor had already been called and DisableColor has not been called yet, calling this will not do anything. <br /></td></tr>
 <tr class="separator:a37e102497d29543a18e1874e0f705bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac99bbb2b4fff07f147b167b424d067cc"><td class="memItemLeft" align="right" valign="top"><a id="ac99bbb2b4fff07f147b167b424d067cc" name="ac99bbb2b4fff07f147b167b424d067cc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>DisableColor</b> ()</td></tr>
+<tr class="memdesc:ac99bbb2b4fff07f147b167b424d067cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the color of the render before <code>EnableColor</code> was called. If EnableColor has not been called, this does nothing. <br /></td></tr>
 <tr class="separator:ac99bbb2b4fff07f147b167b424d067cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ac59413e70b8f38b50477634dcc09a315"><td class="memItemLeft" align="right" valign="top"><a id="ac59413e70b8f38b50477634dcc09a315" name="ac59413e70b8f38b50477634dcc09a315"></a>
 Color&#160;</td><td class="memItemRight" valign="bottom"><b>color</b> = Color.yellow</td></tr>
+<tr class="memdesc:ac59413e70b8f38b50477634dcc09a315"><td class="mdescLeft">&#160;</td><td class="mdescRight">The color to set when enabled. <br /></td></tr>
 <tr class="separator:ac59413e70b8f38b50477634dcc09a315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45956e0b806e9be3412d837ee069ad57"><td class="memItemLeft" align="right" valign="top"><a id="a45956e0b806e9be3412d837ee069ad57" name="a45956e0b806e9be3412d837ee069ad57"></a>
+MeshRenderer&#160;</td><td class="memItemRight" valign="bottom"><b>meshRenderer</b></td></tr>
+<tr class="memdesc:a45956e0b806e9be3412d837ee069ad57"><td class="mdescLeft">&#160;</td><td class="mdescRight">The meshrender whose color will be toggled. If not set will look for a MeshRenderer in the attached GameObject. <br /></td></tr>
+<tr class="separator:a45956e0b806e9be3412d837ee069ad57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Allows modifying the color with a switch. </p>

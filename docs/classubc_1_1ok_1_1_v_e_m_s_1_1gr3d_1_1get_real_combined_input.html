@@ -112,6 +112,9 @@ $(document).ready(function(){initNavTree('classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1
   <div class="headertitle"><div class="title">ubc.ok.VEMS.gr3d.getRealCombinedInput Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Combine multiple different classes that implement the <code>PlayerInputs</code> interface. Hence, this can be used as a dropin replacement for anywhere the <code>PlayerInputs</code> is used. Add the different PlayerInputs classes to <code>playerInputsComponents</code>. Note tha each class that implements the PlayerInput would have to be in its own GameObject for this to work. Currently, the <code>Wand</code> and <code>Head</code> would simply return only the values from the first component in <code>playerInputsComponents</code>.  
+ <a href="classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1get_real_combined_input.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ubc.ok.VEMS.gr3d.getRealCombinedInput:</div>
 <div class="dyncontent">
@@ -123,6 +126,7 @@ Inheritance diagram for ubc.ok.VEMS.gr3d.getRealCombinedInput:</div>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6856ca9d951de949f0a2b183e7085b2a"><td class="memItemLeft" align="right" valign="top"><a id="a6856ca9d951de949f0a2b183e7085b2a" name="a6856ca9d951de949f0a2b183e7085b2a"></a>
 List&lt; Transform &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>playerInputsComponents</b></td></tr>
+<tr class="memdesc:a6856ca9d951de949f0a2b183e7085b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combines the inputs from multiple PlayerInputs. Precedence order is the same as the order in this list (i.e., first one with a default input returns the value.). Each gameObject in the list is expected to have a PlayerInput attached to it. <br /></td></tr>
 <tr class="separator:a6856ca9d951de949f0a2b183e7085b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
@@ -212,7 +216,9 @@ Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>Wand</b><code> [get
 Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>Head</b><code> [get]</code></td></tr>
 <tr class="separator:adfe265e69c34ca000d1f268644a911c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Combine multiple different classes that implement the <code>PlayerInputs</code> interface. Hence, this can be used as a dropin replacement for anywhere the <code>PlayerInputs</code> is used. Add the different PlayerInputs classes to <code>playerInputsComponents</code>. Note tha each class that implements the PlayerInput would have to be in its own GameObject for this to work. Currently, the <code>Wand</code> and <code>Head</code> would simply return only the values from the first component in <code>playerInputsComponents</code>. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/VEMS/gR3D/Assets/Scripts/getRealCombinedInput.cs</li>
 </ul>
 </div><!-- contents -->

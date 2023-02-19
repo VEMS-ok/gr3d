@@ -107,11 +107,16 @@ $(document).ready(function(){initNavTree('classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1get_real_remote_input-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ubc.ok.VEMS.gr3d.getRealRemoteInput Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface, hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message:  
+ <a href="classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1get_real_remote_input.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ubc.ok.VEMS.gr3d.getRealRemoteInput:</div>
 <div class="dyncontent">
@@ -205,6 +210,38 @@ Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>GetWand</b> ()</td>
 <tr class="memitem:a40dbed865e57453eaeea3cde49d208d5"><td class="memItemLeft" align="right" valign="top"><a id="a40dbed865e57453eaeea3cde49d208d5" name="a40dbed865e57453eaeea3cde49d208d5"></a>
 Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>GetHead</b> ()</td></tr>
 <tr class="separator:a40dbed865e57453eaeea3cde49d208d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa05c46ee96ead58cb87b015c12661310"><td class="memItemLeft" align="right" valign="top"><a id="aa05c46ee96ead58cb87b015c12661310" name="aa05c46ee96ead58cb87b015c12661310"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetupMessageHandlers</b> ()</td></tr>
+<tr class="memdesc:aa05c46ee96ead58cb87b015c12661310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribes to the topics with the root topic being the value set for <code>rootTopic</code>. See the documentation of <code>getRealRemoteInput</code> for messages subscribed to. <br /></td></tr>
+<tr class="separator:aa05c46ee96ead58cb87b015c12661310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a8c0695ed81a825ce1f469e64f6c95dc7"><td class="memItemLeft" align="right" valign="top"><a id="a8c0695ed81a825ce1f469e64f6c95dc7" name="a8c0695ed81a825ce1f469e64f6c95dc7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setupOnStart</b> = true</td></tr>
+<tr class="memdesc:a8c0695ed81a825ce1f469e64f6c95dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">If set to <code>true</code>, will call the <code>SetupSubscription</code> method within <code>Start</code>. <br /></td></tr>
+<tr class="separator:a8c0695ed81a825ce1f469e64f6c95dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7af3d9b1832afcd406deb91e3e18cb1d"><td class="memItemLeft" align="right" valign="top"><a id="a7af3d9b1832afcd406deb91e3e18cb1d" name="a7af3d9b1832afcd406deb91e3e18cb1d"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>rootTopic</b> = &quot;getReal3D&quot;</td></tr>
+<tr class="memdesc:a7af3d9b1832afcd406deb91e3e18cb1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The root topic of the client. <br /></td></tr>
+<tr class="separator:a7af3d9b1832afcd406deb91e3e18cb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ab45dcfeacf835c4e720cc7c913f02c3b"><td class="memItemLeft" align="right" valign="top"><a id="ab45dcfeacf835c4e720cc7c913f02c3b" name="ab45dcfeacf835c4e720cc7c913f02c3b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="separator:ab45dcfeacf835c4e720cc7c913f02c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac231ec8d168ade8187543c75445e558b"><td class="memItemLeft" align="right" valign="top"><a id="ac231ec8d168ade8187543c75445e558b" name="ac231ec8d168ade8187543c75445e558b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="separator:ac231ec8d168ade8187543c75445e558b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec49f0c79712e6c68ee2444e8726308d"><td class="memItemLeft" align="right" valign="top"><a id="aec49f0c79712e6c68ee2444e8726308d" name="aec49f0c79712e6c68ee2444e8726308d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ResetValues</b> ()</td></tr>
+<tr class="memdesc:aec49f0c79712e6c68ee2444e8726308d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Before processing any messages, reset values with this function. <br /></td></tr>
+<tr class="separator:aec49f0c79712e6c68ee2444e8726308d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af116724e6c85eaa704260e4c14858112"><td class="memItemLeft" align="right" valign="top"><a id="af116724e6c85eaa704260e4c14858112" name="af116724e6c85eaa704260e4c14858112"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MessageRecieved</b> ()</td></tr>
+<tr class="memdesc:af116724e6c85eaa704260e4c14858112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method used to indicate the message is received. Sets the time of last message. <br /></td></tr>
+<tr class="separator:af116724e6c85eaa704260e4c14858112"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -293,7 +330,32 @@ Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>Wand</b><code> [get
 Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>Head</b><code> [get]</code></td></tr>
 <tr class="separator:a86bf2cdaa45934c0c8583b584e392381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface, hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message: </p>
+<ul>
+<li>"{rootTopic}/yawAxis"</li>
+<li>"{rootTopic}/pitchAxis"</li>
+<li>"{rootTopic}/strafeAxis"</li>
+<li>"{rootTopic}/forwardAxis"</li>
+<li>"{rootTopic}/wandLookButtonDown"</li>
+<li>"{rootTopic}/wandLookButtonUp"</li>
+<li>"{rootTopic}/wandDriveButtonDown"</li>
+<li>"{rootTopic}/wandDriveButtonUp"</li>
+<li>"{rootTopic}/navSpeedButtonDown"</li>
+<li>"{rootTopic}/navSpeedButtonUp"</li>
+<li>"{rootTopic}/jumpButtonDown"</li>
+<li>"{rootTopic}/jumpButtonUp"</li>
+<li>"{rootTopic}/wandButtonDown"</li>
+<li>"{rootTopic}/wandButtonUp"</li>
+<li>"{rootTopic}/changeWandButtonDown"</li>
+<li>"{rootTopic}/changeWandButtonUp"</li>
+<li>"{rootTopic}/resetButtonDown"</li>
+<li>"{rootTopic}/resetButtonUp"</li>
+</ul>
+<p>Where "{rootTopic}" is the value set for <code>rootTopic</code>. By default this is "getReal3D" NOTE: Doesn't handle the <code>Wand</code> and <code>Head</code> fields of the <code>PlayerInterface</code></p>
+<p>If <code>setupOnStart</code> is false, the <code>SetupSubscriptions</code> method will have to be manually called to subscribe.</p>
+<p>Whenever a new message is recieved or after waiting for 100 ms, the following values are set to the default values shown: YawAxis = 0; PitchAxis = 0; WandLookButtonDown = false; WandLookButtonUp = false; WandDriveButtonDown = false; WandDriveButtonUp = false; StrafeAxis = 0; ForwardAxis = 0; NavSpeedButtonDown = false; NavSpeedButtonUp = false; JumpButtonDown = false; JumpButtonUp = false; WandButtonDown = false; WandButtonUp = false; ChangeWandButtonDown = false; ChangeWandButtonUp = false; ResetButtonDown = false; ResetButtonUp = false; </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/VEMS/gR3D/Assets/Scripts/getRealRemoteInput.cs</li>
 </ul>
 </div><!-- contents -->
