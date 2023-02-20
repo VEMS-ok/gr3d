@@ -48,7 +48,7 @@ namespace ubc.ok.VEMS.Utils
         /// </summary>
         public int testPort = 80;
 
-        private Dictionary<string, List<Action<string>>> subsciptions = new Dictionary<string, List<Action<string>>>();
+        private Dictionary<string, List<Action<string, string>>> subsciptions = new Dictionary<string, List<Action<string, string>>>();
         IMqttClient mqttClient;
 
         void Start()
@@ -66,20 +66,23 @@ namespace ubc.ok.VEMS.Utils
 
         /// <summary>
         /// The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.
+        ///
+        /// FIXME: Currently doesn't handle wildcards in topics.
+        ///
         /// <example>
         /// @code
         ///   MessageClient.Instance.AddSubscriptions(new Dictionary<string, Action<string>>()
         ///   {
-        ///       {"/myCustomMessage/messageX", payload => {Debug.Log(payload);}}
+        ///       {"/myCustomMessage/messageX", (topic, payload) => {Debug.Log(payload);}}
         ///   });
         /// @endcode
         /// </example>
         /// </summary>
         /// <param name="subscribingTopicHandlers">
         ///    A dictionary, where a given key is the topic and the value of
-        ///    the key is a System.Action that takes the payload (string) as a parameter.
+        ///    the key is a System.Action that takes the topic (string) and payload (string) as a parameter.
         /// </param>
-        public void AddSubscriptions(Dictionary<string, Action<string>> subscribingTopicHandlers)
+        public void AddSubscriptions(Dictionary<string, Action<string, string>> subscribingTopicHandlers)
         {
             foreach (var kvp in subscribingTopicHandlers)
             {
@@ -87,7 +90,7 @@ namespace ubc.ok.VEMS.Utils
 
                 if (!subsciptions.ContainsKey(topic))
                 {
-                    subsciptions[topic] = new List<Action<string>>();
+                    subsciptions[topic] = new List<Action<string, string>>();
                 }
 
                 subsciptions[topic].Add(kvp.Value);
@@ -96,12 +99,15 @@ namespace ubc.ok.VEMS.Utils
 
         /// <summary>
         /// The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.
+        ///
+        /// FIXME: Currently doesn't handle wildcards in topics
+        ///
         /// </summary>
         /// <param name="subscribingTopicHandlers">
         ///    A dictionary, where a given key is the topic and the value of
-        ///    the key is a collection of System.Action that takes the payload (string) as a parameter.
+        ///    the key is a collection of System.Action that takes the topic (string) and payload (string) as a parameter.
         /// </param>
-        public void AddSubscriptions(Dictionary<string, IEnumerable<Action<string>>> subscribingTopicHandlers)
+        public void AddSubscriptions(Dictionary<string, IEnumerable<Action<string, string>>> subscribingTopicHandlers)
         {
             foreach (var kvp in subscribingTopicHandlers)
             {
@@ -109,10 +115,10 @@ namespace ubc.ok.VEMS.Utils
 
                 if (!subsciptions.ContainsKey(topic))
                 {
-                    subsciptions[topic] = new List<Action<string>>();
+                    subsciptions[topic] = new List<Action<string, string>>();
                 }
 
-                foreach (Action<string> handler in kvp.Value)
+                foreach (Action<string, string> handler in kvp.Value)
                 {
                     subsciptions[topic].Add(handler);
                 }
@@ -147,7 +153,7 @@ namespace ubc.ok.VEMS.Utils
                 string topic = e.ApplicationMessage.Topic;
                 if (subsciptions.ContainsKey(topic))
                 {
-                    subsciptions[topic].ForEach(handler => handler.Invoke(payload));
+                    subsciptions[topic].ForEach(handler => handler.Invoke(topic, payload));
                 }
                 else
                 {
