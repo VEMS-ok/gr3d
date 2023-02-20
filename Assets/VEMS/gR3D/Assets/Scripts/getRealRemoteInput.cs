@@ -56,6 +56,7 @@ namespace ubc.ok.VEMS.gr3d
     /// </summary>
     public class getRealRemoteInput : getReal3D.MonoBehaviourWithRpc, PlayerInputs
     {
+        #region PlayerInput values
         private float yawAxis = 0;
         private float pitchAxis = 0;
         private bool wandLookButtonDown = false;
@@ -83,21 +84,6 @@ namespace ubc.ok.VEMS.gr3d
         private bool resetButton = false;
         private Sensor wand = new Sensor();
         private Sensor head = new Sensor();
-
-        private DateTime lastMessaageTime = DateTime.Now;
-        // Reset values after 100 ms;
-        private TimeSpan resetTime = new TimeSpan(0, 0, 0, 0, 100);
-
-        [Tooltip("Setup subscription on startup?")]
-        /// <summary>
-        /// If set to `true`, will call the `SetupSubscription` method within `Start`.
-        /// </summary>
-        public bool setupOnStart = true;
-        [Tooltip("The root topic of this client.")]
-        /// <summary>
-        /// The root topic of the client.
-        /// </summary>
-        public string rootTopic = "getReal3D";
 
         public MonoBehaviour behaviour => GetBehaviour();
 
@@ -152,8 +138,25 @@ namespace ubc.ok.VEMS.gr3d
         public bool ResetButton => GetResetButton();
 
         public Sensor Wand => GetWand();
-
         public Sensor Head => GetHead();
+        #endregion
+
+        private DateTime lastMessaageTime = DateTime.Now;
+        // Reset values after 100 ms;
+        private TimeSpan resetTime = new TimeSpan(0, 0, 0, 0, 100);
+        private bool processingMessage = false;
+
+        [Tooltip("Setup subscription on startup?")]
+        /// <summary>
+        /// If set to `true`, will call the `SetupSubscription` method within `Start`.
+        /// </summary>
+        public bool setupOnStart = true;
+        [Tooltip("The root topic of this client.")]
+        /// <summary>
+        /// The root topic of the client.
+        /// </summary>
+        public string rootTopic = "getReal3D";
+
 
     #region Unity functions
         protected void Start()
@@ -346,29 +349,30 @@ namespace ubc.ok.VEMS.gr3d
     #region MQTT
         /// <summary>
         /// Subscribes to the topics with the root topic being the value set for `rootTopic`. See the documentation of `getRealRemoteInput` for messages subscribed to.
+        /// Note that any message recieved while a previous message is being processed wil be dropped.
         /// </summary>
         public void SetupMessageHandlers()
         {
-            Dictionary<string, Action<string>> subscriptions = new Dictionary<string, Action<string>>()
+            Dictionary<string, Action<string, string>> subscriptions = new Dictionary<string, Action<string, string>>()
             {
-                {$"{rootTopic}/yawAxis", SetYawAxis},
-                {$"{rootTopic}/pitchAxis", SetPitchAxis},
-                {$"{rootTopic}/strafeAxis", SetStrafeAxis},
-                {$"{rootTopic}/forwardAxis", SetForwardAxis},
-                {$"{rootTopic}/wandLookButtonDown", SetWandLookButtonDown},
-                {$"{rootTopic}/wandLookButtonUp", SetWandLookButtonUp},
-                {$"{rootTopic}/wandDriveButtonDown", SetWandDriveButtonDown},
-                {$"{rootTopic}/wandDriveButtonUp", SetWandDriveButtonUp},
-                {$"{rootTopic}/navSpeedButtonDown", SetNavSpeedButtonDown},
-                {$"{rootTopic}/navSpeedButtonUp", SetNavSpeedButtonUp},
-                {$"{rootTopic}/jumpButtonDown", SetJumpButtonDown},
-                {$"{rootTopic}/jumpButtonUp", SetJumpButtonUp},
-                {$"{rootTopic}/wandButtonDown", SetWandButtonDown},
-                {$"{rootTopic}/wandButtonUp", SetWandButtonUp},
-                {$"{rootTopic}/changeWandButtonDown", SetChangeWandButtonDown},
-                {$"{rootTopic}/changeWandButtonUp", SetChangeWandButtonUp},
-                {$"{rootTopic}/resetButtonDown", SetResetButtonDown},
-                {$"{rootTopic}/resetButtonUp", SetResetButtonUp}
+                {$"{rootTopic}/yawAxis", HandleMessage},
+                {$"{rootTopic}/pitchAxis", HandleMessage},
+                {$"{rootTopic}/strafeAxis", HandleMessage},
+                {$"{rootTopic}/forwardAxis", HandleMessage},
+                {$"{rootTopic}/wandLookButtonDown", HandleMessage},
+                {$"{rootTopic}/wandLookButtonUp", HandleMessage},
+                {$"{rootTopic}/wandDriveButtonDown", HandleMessage},
+                {$"{rootTopic}/wandDriveButtonUp", HandleMessage},
+                {$"{rootTopic}/navSpeedButtonDown", HandleMessage},
+                {$"{rootTopic}/navSpeedButtonUp", HandleMessage},
+                {$"{rootTopic}/jumpButtonDown", HandleMessage},
+                {$"{rootTopic}/jumpButtonUp", HandleMessage},
+                {$"{rootTopic}/wandButtonDown", HandleMessage},
+                {$"{rootTopic}/wandButtonUp", HandleMessage},
+                {$"{rootTopic}/changeWandButtonDown", HandleMessage},
+                {$"{rootTopic}/changeWandButtonUp", HandleMessage},
+                {$"{rootTopic}/resetButtonDown", HandleMessage},
+                {$"{rootTopic}/resetButtonUp", HandleMessage}
             };
 
             MessageClient.Instance.AddSubscriptions(subscriptions);
@@ -376,6 +380,71 @@ namespace ubc.ok.VEMS.gr3d
 
 
     #region helper functions
+        private void HandleMessage(string topic, string payload)
+        {
+            if (!processingMessage)
+            {
+                processingMessage = true;
+                switch (topic)
+                {
+                    case "getReal3D/yawAxis":
+                        SetYawAxis(payload);
+                        break;
+                    case "getReal3D/pitchAxis":
+                        SetPitchAxis(payload);
+                        break;
+                    case "getReal3D/strafeAxis":
+                        SetStrafeAxis(payload);
+                        break;
+                    case "getReal3D/forwardAxis":
+                        SetForwardAxis(payload);
+                        break;
+                    case "getReal3D/wandLookButtonDown":
+                        SetWandLookButtonDown(payload);
+                        break;
+                    case "getReal3D/wandLookButtonUp":
+                        SetWandLookButtonUp(payload);
+                        break;
+                    case "getReal3D/wandDriveButtonDown":
+                        SetWandDriveButtonDown(payload);
+                        break;
+                    case "getReal3D/wandDriveButtonUp":
+                        SetWandDriveButtonUp(payload);
+                        break;
+                    case "getReal3D/navSpeedButtonDown":
+                        SetNavSpeedButtonDown(payload);
+                        break;
+                    case "getReal3D/navSpeedButtonUp":
+                        SetNavSpeedButtonUp(payload);
+                        break;
+                    case "getReal3D/jumpButtonDown":
+                        SetJumpButtonDown(payload);
+                        break;
+                    case "getReal3D/jumpButtonUp":
+                        SetJumpButtonUp(payload);
+                        break;
+                    case "getReal3D/wandButtonDown":
+                        SetWandButtonDown(payload);
+                        break;
+                    case "getReal3D/wandButtonUp":
+                        SetWandButtonUp(payload);
+                        break;
+                    case "getReal3D/changeWandButtonDown":
+                        SetChangeWandButtonDown(payload);
+                        break;
+                    case "getReal3D/changeWandButtonUp":
+                        SetChangeWandButtonUp(payload);
+                        break;
+                    case "getReal3D/resetButtonDown":
+                        SetResetButtonDown(payload);
+                        break;
+                    case "getReal3D/resetButtonUp":
+                        SetResetButtonUp(payload);
+                        break;
+                }
+                processingMessage = false;
+            }
+        }
         private float StringToFloat(string message)
         {
             return float.Parse(message);
