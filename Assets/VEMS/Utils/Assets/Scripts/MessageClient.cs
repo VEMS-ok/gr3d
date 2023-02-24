@@ -17,6 +17,7 @@ namespace ubc.ok.VEMS.Utils
     public class MessageClient: MonoBehaviour
     {
         // NOTE: hardcoding these as these are not expected to change!
+        private const Protocol BROKER_PROTOCOL = Protocol.wss;
         private const string BROKER_ADDRESS = "vemslab.ok.ubc.ca";
         private const int BROKER_PORT = 80;
 
@@ -47,6 +48,12 @@ namespace ubc.ok.VEMS.Utils
         /// The port of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.
         /// </summary>
         public int testPort = 80;
+
+        [Tooltip("The protocol to use with the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.")]
+        /// <summary>
+        /// The protocol to use with the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built.
+        /// </summary>
+        public Protocol testProtocol = Protocol.mqtt;
 
         private Dictionary<string, List<Action<string, string>>> subsciptions = new Dictionary<string, List<Action<string, string>>>();
         IMqttClient mqttClient;
@@ -136,16 +143,24 @@ namespace ubc.ok.VEMS.Utils
 
             string _serverAddress;
             int _port;
+            string _protocol;
 
 #if UNITY_EDITOR
+            _protocol = testProtocol.ToString();
             _serverAddress = testServerAddress;
             _port = testPort;
 #else
+            _protocol = BROKER_PROTOCOL.ToString();
             _serverAddress = BROKER_ADDRESS;
             _port = BROKER_PORT;
 #endif
 
-            MqttClientOptions mqttClientOptions = new MqttClientOptionsBuilder().WithTcpServer(_serverAddress, _port).Build();
+            string address = $"{_protocol}://{_serverAddress}:{_port}";
+            Debug.Log($"Connecting to {address}");
+            MqttClientOptions mqttClientOptions = new MqttClientOptionsBuilder()
+                .WithConnectionUri($"{address}")
+                .WithCleanSession()
+                .Build();
 
             mqttClient.ApplicationMessageReceivedAsync += e =>
             {
@@ -192,6 +207,11 @@ namespace ubc.ok.VEMS.Utils
             Debug.Log("MQTT client subscribed to topics.");
             // The response contains additional data sent by the server after subscribing.
             // Debug.Log($"{response.ReasonString} " + string.Join(", ",response.Items));
+        }
+
+        [Serializable]
+        public enum Protocol{
+            ws, wss, mqtt
         }
     }
 }

@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e28ae22cd29de254ead380909045f293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverAddress: 127.0.0.1
-  port: 80
+  testServerAddress: 127.0.0.1
+  testPort: 80
+  testProtocol: 0
 --- !u!114 &5890684777685175349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20337bc7ac7a6e34484773c9caf4d589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setupOnStart: 1
+  rootTopic: getReal3D
 --- !u!1 &1022935715435504344
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +519,12 @@ MonoBehaviour:
   - {fileID: 1022935717129499529}
   - {fileID: 1022935717086355644}
   - {fileID: 1022935716295791741}
+  onWandButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  onWandButtonReleased:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1022935716611837391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +543,12 @@ MonoBehaviour:
   allowGrabSteal: 0
   Wand: {fileID: 1022935717086355647}
   ReparentTransform: {fileID: 1022935715435504347}
+  onGrabbed:
+    m_PersistentCalls:
+      m_Calls: []
+  onDropped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1022935716611837395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 0.8584906, g: 0.62928236, b: 0, a: 0.8235294}
+  meshRenderer: {fileID: 0}
 --- !u!1 &1022935717129499529
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 0.8584906, g: 0.62928236, b: 0, a: 0.8235294}
+  meshRenderer: {fileID: 0}
 --- !u!1 &4907750319797366651
 GameObject:
   m_ObjectHideFlags: 0
