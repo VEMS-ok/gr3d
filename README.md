@@ -1,6 +1,6 @@
 # getReal3D Extensions
 
-This repo contains the extensions to the getReal3D for the VEMS.
+This repo contains the extensions to the getReal3D for the VEMS. The project itself is a playground for developing the extensions. 
 
 ## Installation
 - Install the getReal3D unity pacakge. You'll have to request it from the UBCO Studios. Currently the getReal3D application only supports the following version of Unity.
@@ -12,6 +12,11 @@ This repo contains the extensions to the getReal3D for the VEMS.
 
 ## Documentation
 - Documentation of the extensions are available at [https://vems-ok.github.io/gr3d/](https://vems-ok.github.io/gr3d/).
+
+## Examples
+- A sample react application that acts as a remote input can be found in https://github.com/VEMS-ok/sample-react-remote-input
+  This generates messages which are recieved by the `getRealRemoteInput`.
+  A react app is hosted in https://vems-ok.github.io/sample-react-remote-input/
 
 ## Contributions
 - See [CONTRIBUTING.md](CONTRIBUTING.md)

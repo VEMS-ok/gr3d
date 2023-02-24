@@ -108,14 +108,15 @@ $(document).ready(function(){initNavTree('md__local_docs_prefabs.html',''); init
   <div class="headertitle"><div class="title">Prefabs </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md5"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md6"></a>
 Player</h1>
 <p>The Player prefab is a modified version of the <code>GenericPlayer</code> prefab in the getReal3D package:</p><ul>
 <li>Replaces the <code>GenericWandManager</code> with <code>CustomWandManager</code> which exposes events that can be subscribed to and also can interact with any component that has <code>Interactable</code> attached to them.</li>
 <li>Replaces the <code>GenericGrabbingWand</code> with <code>CustomGrabbingWand</code>which exposes events that can be subscribed to.</li>
 <li>Has the <code>WandPitchAxis</code> setup, which uses the pitch axis to pitch the wand up and down. You may need to configure the pitch axis in <code>getReal3D</code> &gt; <code>Input Manager</code> for this to work.</li>
 <li>Has the <code>ColorBehaviour</code> setup for all wands, which changes the color of the wand to yellow when the wand button is pressed.</li>
-<li>Has the <code>getRealCombinedInput</code> configured to work with <code>getRealRemoteInput</code> and the default <code>getReal3DPlayerInput</code> that is bundled with the <code>getReal3d</code> pacakge.</li>
+<li>Has the <code>getRealCombinedInput</code> configured to work with <code>getRealRemoteInput</code> and the default <code>getReal3DPlayerInput</code> that is bundled with the <code>getReal3d</code> pacakge. (components under the game object <code>Player</code>&gt;<code>InputManager</code>).</li>
+<li>Has the the <code>MessageClient</code> setup in <code>Player</code>&gt;<code>InputManager</code> &gt; <code>MessageInput</code>. For local testing, setup the <code>testServerAddress</code>, <code>testPort</code> and <code>testProtocol</code>. When built, they will use preconfigured values for the vems servers. See docuemntation of <code>MessageClient</code> for more information.</li>
 <li>Removes the example menu and components related to that. </li>
 </ul>
 </div></div><!-- contents -->

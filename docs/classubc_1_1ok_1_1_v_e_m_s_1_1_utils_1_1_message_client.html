@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
@@ -123,14 +124,22 @@ Inheritance diagram for ubc.ok.VEMS.Utils.MessageClient:</div>
   <img src="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.png" alt=""/>
  </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a36506b6301e1274edff662197ff9c6e2"><td class="memItemLeft" align="right" valign="top"><a id="a36506b6301e1274edff662197ff9c6e2" name="a36506b6301e1274edff662197ff9c6e2"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Protocol</b> { <b>ws</b>
+, <b>wss</b>
+, <b>mqtt</b>
+ }</td></tr>
+<tr class="separator:a36506b6301e1274edff662197ff9c6e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4317559134f9857dba66fad146202119"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a4317559134f9857dba66fad146202119">AddSubscriptions</a> (Dictionary&lt; string, Action&lt; string &gt; &gt; subscribingTopicHandlers)</td></tr>
-<tr class="memdesc:a4317559134f9857dba66fad146202119"><td class="mdescLeft">&#160;</td><td class="mdescRight">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.  <br /></td></tr>
-<tr class="separator:a4317559134f9857dba66fad146202119"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a872eae14dc5e2402fd88aded7e2282b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a872eae14dc5e2402fd88aded7e2282b7">AddSubscriptions</a> (Dictionary&lt; string, IEnumerable&lt; Action&lt; string &gt; &gt; &gt; subscribingTopicHandlers)</td></tr>
-<tr class="memdesc:a872eae14dc5e2402fd88aded7e2282b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.  <br /></td></tr>
-<tr class="separator:a872eae14dc5e2402fd88aded7e2282b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dc53a45c360bd3da67e182664a839cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a1dc53a45c360bd3da67e182664a839cc">AddSubscriptions</a> (Dictionary&lt; string, Action&lt; string, string &gt; &gt; subscribingTopicHandlers)</td></tr>
+<tr class="memdesc:a1dc53a45c360bd3da67e182664a839cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.  <br /></td></tr>
+<tr class="separator:a1dc53a45c360bd3da67e182664a839cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacfea77b8e7eac33a7b7adf3b002010f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#aacfea77b8e7eac33a7b7adf3b002010f">AddSubscriptions</a> (Dictionary&lt; string, IEnumerable&lt; Action&lt; string, string &gt; &gt; &gt; subscribingTopicHandlers)</td></tr>
+<tr class="memdesc:aacfea77b8e7eac33a7b7adf3b002010f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.  <br /></td></tr>
+<tr class="separator:aacfea77b8e7eac33a7b7adf3b002010f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -142,6 +151,10 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>testServerAddress</
 int&#160;</td><td class="memItemRight" valign="bottom"><b>testPort</b> = 80</td></tr>
 <tr class="memdesc:a99a823ba4ba542f7edb66dadaee8b9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The port of the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built. <br /></td></tr>
 <tr class="separator:a99a823ba4ba542f7edb66dadaee8b9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a69a2b59a02c14e68775fa2ccea55de"><td class="memItemLeft" align="right" valign="top"><a id="a3a69a2b59a02c14e68775fa2ccea55de" name="a3a69a2b59a02c14e68775fa2ccea55de"></a>
+Protocol&#160;</td><td class="memItemRight" valign="bottom"><b>testProtocol</b> = Protocol.mqtt</td></tr>
+<tr class="memdesc:a3a69a2b59a02c14e68775fa2ccea55de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The protocol to use with the test MQTT broker. Only used when playing from Editor. Uese preconfigured value when built. <br /></td></tr>
+<tr class="separator:a3a69a2b59a02c14e68775fa2ccea55de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
@@ -153,8 +166,8 @@ static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_clie
 <div class="textblock"><p>This class allows connecting to an MQTTServer and await messages. This is also a singleton, which allows accessing an instance of this from anywhere in code. For this to work, it needs to be added as a component within the scene. The <code>Player</code> prefab has a MessageClient configured which can be accessed with <code>MessageClient.Instance</code> </p>
 <p>The <code>testServerAddress</code> and <code>testPort</code> can be set to use a test server while developing in Editor, once built it will use predefined servers of VEMS. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4317559134f9857dba66fad146202119" name="a4317559134f9857dba66fad146202119"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4317559134f9857dba66fad146202119">&#9670;&#160;</a></span>AddSubscriptions() <span class="overload">[1/2]</span></h2>
+<a id="a1dc53a45c360bd3da67e182664a839cc" name="a1dc53a45c360bd3da67e182664a839cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dc53a45c360bd3da67e182664a839cc">&#9670;&#160;</a></span>AddSubscriptions() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +178,7 @@ static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_clie
         <tr>
           <td class="memname">void ubc.ok.VEMS.Utils.MessageClient.AddSubscriptions </td>
           <td>(</td>
-          <td class="paramtype">Dictionary&lt; string, Action&lt; string &gt; &gt;&#160;</td>
+          <td class="paramtype">Dictionary&lt; string, Action&lt; string, string &gt; &gt;&#160;</td>
           <td class="paramname"><em>subscribingTopicHandlers</em></td><td>)</td>
           <td></td>
         </tr>
@@ -178,23 +191,24 @@ static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_clie
 </div><div class="memdoc">
 
 <p>The topics to subscribe to and the corresponding handlers when a message of the topic is recieved. </p>
-<div class="fragment"><div class="line"><a class="code hl_class" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html">MessageClient</a>.Instance.<a class="code hl_function" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a4317559134f9857dba66fad146202119">AddSubscriptions</a>(<span class="keyword">new</span> Dictionary&lt;<span class="keywordtype">string</span>, Action&lt;string&gt;&gt;()</div>
+<p>FIXME: Currently doesn't handle wildcards in topics.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html">MessageClient</a>.Instance.<a class="code hl_function" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a1dc53a45c360bd3da67e182664a839cc">AddSubscriptions</a>(<span class="keyword">new</span> Dictionary&lt;<span class="keywordtype">string</span>, Action&lt;string&gt;&gt;()</div>
 <div class="line">{</div>
-<div class="line">    {<span class="stringliteral">&quot;/myCustomMessage/messageX&quot;</span>, payload =&gt; {Debug.Log(payload);}}</div>
+<div class="line">    {<span class="stringliteral">&quot;/myCustomMessage/messageX&quot;</span>, (topic, payload) =&gt; {Debug.Log(payload);}}</div>
 <div class="line">});</div>
 <div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html">ubc.ok.VEMS.Utils.MessageClient</a></div><div class="ttdoc">This class allows connecting to an MQTTServer and await messages. This is also a singleton,...</div><div class="ttdef"><b>Definition:</b> MessageClient.cs:18</div></div>
-<div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html_a4317559134f9857dba66fad146202119"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a4317559134f9857dba66fad146202119">ubc.ok.VEMS.Utils.MessageClient.AddSubscriptions</a></div><div class="ttdeci">void AddSubscriptions(Dictionary&lt; string, Action&lt; string &gt; &gt; subscribingTopicHandlers)</div><div class="ttdoc">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.</div><div class="ttdef"><b>Definition:</b> MessageClient.cs:82</div></div>
+<div class="ttc" id="aclassubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client_html_a1dc53a45c360bd3da67e182664a839cc"><div class="ttname"><a href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html#a1dc53a45c360bd3da67e182664a839cc">ubc.ok.VEMS.Utils.MessageClient.AddSubscriptions</a></div><div class="ttdeci">void AddSubscriptions(Dictionary&lt; string, Action&lt; string, string &gt; &gt; subscribingTopicHandlers)</div><div class="ttdoc">The topics to subscribe to and the corresponding handlers when a message of the topic is recieved.</div><div class="ttdef"><b>Definition:</b> MessageClient.cs:92</div></div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">subscribingTopicHandlers</td><td>A dictionary, where a given key is the topic and the value of the key is a System.Action that takes the payload (string) as a parameter. </td></tr>
+    <tr><td class="paramname">subscribingTopicHandlers</td><td>A dictionary, where a given key is the topic and the value of the key is a System.Action that takes the topic (string) and payload (string) as a parameter. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a872eae14dc5e2402fd88aded7e2282b7" name="a872eae14dc5e2402fd88aded7e2282b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a872eae14dc5e2402fd88aded7e2282b7">&#9670;&#160;</a></span>AddSubscriptions() <span class="overload">[2/2]</span></h2>
+<a id="aacfea77b8e7eac33a7b7adf3b002010f" name="aacfea77b8e7eac33a7b7adf3b002010f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacfea77b8e7eac33a7b7adf3b002010f">&#9670;&#160;</a></span>AddSubscriptions() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,7 +219,7 @@ static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_clie
         <tr>
           <td class="memname">void ubc.ok.VEMS.Utils.MessageClient.AddSubscriptions </td>
           <td>(</td>
-          <td class="paramtype">Dictionary&lt; string, IEnumerable&lt; Action&lt; string &gt; &gt; &gt;&#160;</td>
+          <td class="paramtype">Dictionary&lt; string, IEnumerable&lt; Action&lt; string, string &gt; &gt; &gt;&#160;</td>
           <td class="paramname"><em>subscribingTopicHandlers</em></td><td>)</td>
           <td></td>
         </tr>
@@ -218,9 +232,10 @@ static <a class="el" href="classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_clie
 </div><div class="memdoc">
 
 <p>The topics to subscribe to and the corresponding handlers when a message of the topic is recieved. </p>
+<p>FIXME: Currently doesn't handle wildcards in topics</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">subscribingTopicHandlers</td><td>A dictionary, where a given key is the topic and the value of the key is a collection of System.Action that takes the payload (string) as a parameter. </td></tr>
+    <tr><td class="paramname">subscribingTopicHandlers</td><td>A dictionary, where a given key is the topic and the value of the key is a collection of System.Action that takes the topic (string) and payload (string) as a parameter. </td></tr>
   </table>
   </dd>
 </dl>
