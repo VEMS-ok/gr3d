@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11" />
     <meta name="generator" content="Doxygen 1.9.6" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>getReal3D Extentions: Related Pages</title>
+    <title>getReal3D Extentions: Setting up local mqtt server for testing</title>
     <link href="tabs.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="dynsections.js"></script>
@@ -79,7 +79,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('pages.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('md__local_docs_mqtt_test_server.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -104,17 +104,37 @@ $(document).ready(function(){initNavTree('pages.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Related Pages</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Setting up local mqtt server for testing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="md__local_docs_mqtt_test_server.html" target="_self">Setting up local mqtt server for testing</a></td><td class="desc"></td></tr>
-<tr id="row_1_" class="odd"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9658;</span><a class="el" href="md__local_docs_prefabs.html" target="_self">Prefabs</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><p>When developing your game, if you are using <code>MessageClient</code> or <code>getRealRemoteInput</code>, you would use a local mqtt broker (server). When built, it would use the server setup at VEMS. You can use any broker. As an example, we show how to set up and use a <a href="https://mosquitto.org">mosquitto broker</a> with the <a href="https://vems-ok.github.io/gr3d/md__local_docs_prefabs.html#autotoc_md6"><code>Player</code></a> prefab bundled with the gr3d extensions.</p>
+<ol type="1">
+<li>Install the mosquitto broker. Instructions for download/installation can be found here: <a href="https://mosquitto.org/download/">https://mosquitto.org/download/</a></li>
+<li>Open a terminal and run the following: <div class="fragment"><div class="line">mosquitto -v -p 80</div>
+</div><!-- fragment --></li>
+</ol>
+<p>The above would run the server only on the local machine on port 80 (<code>-p 80</code>) in verbose mode (<code>-v</code>).</p>
+<p>If you are on <b>Windows OS</b>, you'd want to either add the install location to the <code>PATH</code> variable or change directory of the terminal (<code>cd</code>) to the location where you have the broker installed. For example: </p><div class="fragment"><div class="line">cd &#39;C:\Program Files\mosquitto\&#39;</div>
+<div class="line">.\mosquitto.exe -v -p 80</div>
+</div><!-- fragment --><ol type="1">
+<li>In unity, ensure you have the <code>MessageClient</code> as an active component in the scene. When using the <code>Player</code> prefab, it's in <code>Player</code>&gt;<code>InputManager</code> &gt; <code>MessageInput</code>. Set the following:<ul>
+<li><code>Test Server Address</code>: <code>127.0.0.1</code></li>
+<li><code>Test Port</code>: <code>80</code></li>
+<li><code>Test Protocol</code>: <code>mqtt</code></li>
+</ul>
+</li>
+</ol>
+<p>You should be able to play and test the server.</p>
+<p>Note that, the sample <a href="https://vems-ok.github.io/sample-react-remote-input/">react application</a> will still work with the server configured to be only on the local machine. As the application entirely runs on the client, if you open the app on a broswer in the same machine the broker is running on, you can provide the following details and connect to the broker:</p><ul>
+<li><code>Set address</code>: <code>127.0.0.1</code></li>
+<li><code>Set port</code>: <code>80</code></li>
+</ul>
+<p>If you want any device connected to the same network as you to be able to connect to the broker, with the mosquitto broker, you have to have a configuration file. An example configuration file would be as follows: </p><div class="fragment"><div class="line">listener 80</div>
+</div><!-- fragment --><p>To have the broker run with this config file: </p><div class="fragment"><div class="line">mosquitto -v -c &lt;config file&gt;</div>
+</div><!-- fragment --><p> where <code>&lt;config file&gt;</code> would be the path to the configuration file. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
