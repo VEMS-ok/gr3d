@@ -26,9 +26,12 @@ var NAVTREE =
 [
   [ "getReal3D Extentions", "index.html", [
     [ "getReal3D Extensions", "index.html", "index" ],
-    [ "Setting up local mqtt server for testing", "md__local_docs_mqtt_test_server.html", null ],
+    [ "Setting up local mqtt server for testing", "md__local_docs_mqtt_test_server.html", [
+      [ "Using aedes (Recommended)", "md__local_docs_mqtt_test_server.html#autotoc_md6", null ],
+      [ "Mosquitto", "md__local_docs_mqtt_test_server.html#autotoc_md7", null ]
+    ] ],
     [ "Prefabs", "md__local_docs_prefabs.html", [
-      [ "Player", "md__local_docs_prefabs.html#autotoc_md7", null ]
+      [ "Player", "md__local_docs_prefabs.html#autotoc_md9", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

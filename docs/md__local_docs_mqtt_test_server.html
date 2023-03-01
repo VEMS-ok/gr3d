@@ -108,16 +108,21 @@ $(document).ready(function(){initNavTree('md__local_docs_mqtt_test_server.html',
   <div class="headertitle"><div class="title">Setting up local mqtt server for testing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>When developing your game, if you are using <code>MessageClient</code> or <code>getRealRemoteInput</code>, you would use a local mqtt broker (server). When built, it would use the server setup at VEMS. You can use any broker. As an example, we show how to set up and use a <a href="https://mosquitto.org">mosquitto broker</a> with the <a href="https://vems-ok.github.io/gr3d/md__local_docs_prefabs.html#autotoc_md6"><code>Player</code></a> prefab bundled with the gr3d extensions.</p>
+<div class="textblock"><p>When developing your game, if you are using <code>MessageClient</code> or <code>getRealRemoteInput</code>, you would use a local mqtt broker (server). When built, it would use the server setup at VEMS. You can use any broker.</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Using aedes (Recommended)</h1>
+<p>I haven't figured out why sometimes mosquitto doesn't work with the react application. I am detailing how to setup aedes, which is the current borker running on the VEMS servers.</p>
 <ol type="1">
-<li>Install the mosquitto broker. Instructions for download/installation can be found here: <a href="https://mosquitto.org/download/">https://mosquitto.org/download/</a></li>
-<li>Open a terminal and run the following: <div class="fragment"><div class="line">mosquitto -v -p 80</div>
+<li>Install <code>node.js</code> following instructions at: <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a>).</li>
+<li>From a terminal install aedes-cli globally <div class="fragment"><div class="line">npm install -g aedes-cli</div>
+</div><!-- fragment --></li>
+<li>Run the mqtt server from a terminal: <div class="fragment"><div class="line">aedes start -v --protos ws --ws-port 80</div>
 </div><!-- fragment --></li>
 </ol>
-<p>The above would run the server only on the local machine on port 80 (<code>-p 80</code>) in verbose mode (<code>-v</code>).</p>
-<p>If you are on <b>Windows OS</b>, you'd want to either add the install location to the <code>PATH</code> variable or change directory of the terminal (<code>cd</code>) to the location where you have the broker installed. For example: </p><div class="fragment"><div class="line">cd &#39;C:\Program Files\mosquitto\&#39;</div>
-<div class="line">.\mosquitto.exe -v -p 80</div>
-</div><!-- fragment --><ol type="1">
+<p>The above will start the server with websocket on port <code>80</code>. To start server using tcp (<code>mqtt</code> protocol), run the following. Note that the sample <a href="https://vems-ok.github.io/sample-react-remote-input/">react application</a> won't work the mqtt protocol, it currenty only supports websockets.</p>
+<div class="fragment"><div class="line">aedes start -v -p 80</div>
+</div><!-- fragment --><p>You can see more options by running <code>aedes start --help</code>. For more information on aedes see <a href="https://www.npmjs.com/package/aedes-cli">https://www.npmjs.com/package/aedes-cli</a></p>
+<ol type="1">
 <li>In unity, ensure you have the <code>MessageClient</code> as an active component in the scene. When using the <code>Player</code> prefab, it's in <code>Player</code>&gt;<code>InputManager</code> &gt; <code>MessageInput</code>. Set the following:<ul>
 <li><code>Test Server Address</code>: <code>127.0.0.1</code></li>
 <li><code>Test Port</code>: <code>80</code></li>
@@ -130,6 +135,20 @@ $(document).ready(function(){initNavTree('md__local_docs_mqtt_test_server.html',
 <li><code>Set address</code>: <code>127.0.0.1</code></li>
 <li><code>Set port</code>: <code>80</code></li>
 </ul>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Mosquitto</h1>
+<p>As an example, we show how to set up and use a <a href="https://mosquitto.org">mosquitto broker</a> with the <a href="https://vems-ok.github.io/gr3d/md__local_docs_prefabs.html#autotoc_md6"><code>Player</code></a> prefab bundled with the gr3d extensions.</p>
+<ol type="1">
+<li>Install the mosquitto broker. Instructions for download/installation can be found here: <a href="https://mosquitto.org/download/">https://mosquitto.org/download/</a></li>
+<li>Open a terminal and run the following: <div class="fragment"><div class="line">mosquitto -v -p 80</div>
+</div><!-- fragment --></li>
+</ol>
+<p>The above would run the server only on the local machine on port 80 (<code>-p 80</code>) in verbose mode (<code>-v</code>).</p>
+<p>If you are on <b>Windows OS</b>, you'd want to either add the install location to the <code>PATH</code> variable or change directory of the terminal (<code>cd</code>) to the location where you have the broker installed. For example: </p><div class="fragment"><div class="line">cd &#39;C:\Program Files\mosquitto\&#39;</div>
+<div class="line">.\mosquitto.exe -v -p 80</div>
+</div><!-- fragment --><ol type="1">
+<li>Similar to setp 4 with aedes, configure the <code>MessageClient</code> in Unity.</li>
+</ol>
 <p>If you want any device connected to the same network as you to be able to connect to the broker, with the mosquitto broker, you have to have a configuration file. An example configuration file would be as follows: </p><div class="fragment"><div class="line">listener 80</div>
 </div><!-- fragment --><p>To have the broker run with this config file: </p><div class="fragment"><div class="line">mosquitto -v -c &lt;config file&gt;</div>
 </div><!-- fragment --><p> where <code>&lt;config file&gt;</code> would be the path to the configuration file. </p>

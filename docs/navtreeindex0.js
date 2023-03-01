@@ -39,7 +39,9 @@ var NAVTREEINDEX0 =
 "index.html#autotoc_md3":[0,2],
 "index.html#autotoc_md4":[0,3],
 "md__local_docs_mqtt_test_server.html":[1],
+"md__local_docs_mqtt_test_server.html#autotoc_md6":[1,0],
+"md__local_docs_mqtt_test_server.html#autotoc_md7":[1,1],
 "md__local_docs_prefabs.html":[2],
-"md__local_docs_prefabs.html#autotoc_md7":[2,0],
+"md__local_docs_prefabs.html#autotoc_md9":[2,0],
 "pages.html":[]
 };
