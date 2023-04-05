@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1
 </div><!--header-->
 <div class="contents">
 
-<p>A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface, hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message:  
+<p>A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface, hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message. The type of the message is also displayed:  
  <a href="classubc_1_1ok_1_1_v_e_m_s_1_1gr3d_1_1get_real_remote_input.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ubc.ok.VEMS.gr3d.getRealRemoteInput:</div>
@@ -331,26 +331,26 @@ Sensor&#160;</td><td class="memItemRight" valign="bottom"><b>Head</b><code> [get
 <tr class="separator:a86bf2cdaa45934c0c8583b584e392381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface, hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message: </p>
+<div class="textblock"><p>A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface, hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message. The type of the message is also displayed: </p>
 <ul>
-<li>"{rootTopic}/yawAxis"</li>
-<li>"{rootTopic}/pitchAxis"</li>
-<li>"{rootTopic}/strafeAxis"</li>
-<li>"{rootTopic}/forwardAxis"</li>
-<li>"{rootTopic}/wandLookButtonDown"</li>
-<li>"{rootTopic}/wandLookButtonUp"</li>
-<li>"{rootTopic}/wandDriveButtonDown"</li>
-<li>"{rootTopic}/wandDriveButtonUp"</li>
-<li>"{rootTopic}/navSpeedButtonDown"</li>
-<li>"{rootTopic}/navSpeedButtonUp"</li>
-<li>"{rootTopic}/jumpButtonDown"</li>
-<li>"{rootTopic}/jumpButtonUp"</li>
-<li>"{rootTopic}/wandButtonDown"</li>
-<li>"{rootTopic}/wandButtonUp"</li>
-<li>"{rootTopic}/changeWandButtonDown"</li>
-<li>"{rootTopic}/changeWandButtonUp"</li>
-<li>"{rootTopic}/resetButtonDown"</li>
-<li>"{rootTopic}/resetButtonUp"</li>
+<li>"{rootTopic}/yawAxis" - float</li>
+<li>"{rootTopic}/pitchAxis" - float</li>
+<li>"{rootTopic}/strafeAxis" - float</li>
+<li>"{rootTopic}/forwardAxis" - float</li>
+<li>"{rootTopic}/wandLookButtonDown" - bool</li>
+<li>"{rootTopic}/wandLookButtonUp" - bool</li>
+<li>"{rootTopic}/wandDriveButtonDown" - bool</li>
+<li>"{rootTopic}/wandDriveButtonUp" - bool</li>
+<li>"{rootTopic}/navSpeedButtonDown" - bool</li>
+<li>"{rootTopic}/navSpeedButtonUp" - bool</li>
+<li>"{rootTopic}/jumpButtonDown" - bool</li>
+<li>"{rootTopic}/jumpButtonUp" - bool</li>
+<li>"{rootTopic}/wandButtonDown" - bool</li>
+<li>"{rootTopic}/wandButtonUp" - bool</li>
+<li>"{rootTopic}/changeWandButtonDown" - bool</li>
+<li>"{rootTopic}/changeWandButtonUp" - bool</li>
+<li>"{rootTopic}/resetButtonDown" - bool</li>
+<li>"{rootTopic}/resetButtonUp" - bool</li>
 </ul>
 <p>Where "{rootTopic}" is the value set for <code>rootTopic</code>. By default this is "getReal3D" NOTE: Doesn't handle the <code>Wand</code> and <code>Head</code> fields of the <code>PlayerInterface</code></p>
 <p>If <code>setupOnStart</code> is false, the <code>SetupSubscriptions</code> method will have to be manually called to subscribe.</p>
