@@ -149,6 +149,12 @@ namespace ubc.ok.VEMS.Utils
             _protocol = testProtocol.ToString();
             _serverAddress = testServerAddress;
             _port = testPort;
+
+            if (testServerAddress.Equals(BROKER_ADDRESS))
+            {
+                Debug.Log("The Test Server Address cannot be set to " + BROKER_ADDRESS);
+                return;
+            }
 #else
             _protocol = BROKER_PROTOCOL.ToString();
             _serverAddress = BROKER_ADDRESS;

@@ -12,6 +12,7 @@ This repo contains the extensions to the getReal3D for the VEMS. The project its
 
 ## Documentation
 - Documentation of the extensions are available at [https://vems-ok.github.io/gr3d/](https://vems-ok.github.io/gr3d/).
+- When the appliction is built, it connects to the server `vemslab.ok.ubc.ca` on port 80. During development, please do not use this server, as it may interfere with anyone using the VEMS space. Note that, when testing from editor, it would not allow connecting to this server.
 
 ## Examples
 - A sample react application that acts as a remote input can be found in https://github.com/VEMS-ok/sample-react-remote-input
