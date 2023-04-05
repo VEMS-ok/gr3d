@@ -8,25 +8,26 @@ namespace ubc.ok.VEMS.gr3d
 {
     /// <summary>
     /// A PlayerInput that can recieves input remotly using MessageClient. Implements the PlayerInputs interface,
-    /// hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message:
-    /// - "{rootTopic}/yawAxis"
-    /// - "{rootTopic}/pitchAxis"
-    /// - "{rootTopic}/strafeAxis"
-    /// - "{rootTopic}/forwardAxis"
-    /// - "{rootTopic}/wandLookButtonDown"
-    /// - "{rootTopic}/wandLookButtonUp"
-    /// - "{rootTopic}/wandDriveButtonDown"
-    /// - "{rootTopic}/wandDriveButtonUp"
-    /// - "{rootTopic}/navSpeedButtonDown"
-    /// - "{rootTopic}/navSpeedButtonUp"
-    /// - "{rootTopic}/jumpButtonDown"
-    /// - "{rootTopic}/jumpButtonUp"
-    /// - "{rootTopic}/wandButtonDown"
-    /// - "{rootTopic}/wandButtonUp"
-    /// - "{rootTopic}/changeWandButtonDown"
-    /// - "{rootTopic}/changeWandButtonUp"
-    /// - "{rootTopic}/resetButtonDown"
-    /// - "{rootTopic}/resetButtonUp"
+    /// hence, can be used as a dropin replacemement for getReal3DPlayerInput. Subscribs to the following message.
+    /// The type of the message is also displayed:
+    /// - "{rootTopic}/yawAxis" - float
+    /// - "{rootTopic}/pitchAxis" - float
+    /// - "{rootTopic}/strafeAxis" - float
+    /// - "{rootTopic}/forwardAxis" - float
+    /// - "{rootTopic}/wandLookButtonDown" - bool
+    /// - "{rootTopic}/wandLookButtonUp" - bool
+    /// - "{rootTopic}/wandDriveButtonDown" - bool
+    /// - "{rootTopic}/wandDriveButtonUp" - bool
+    /// - "{rootTopic}/navSpeedButtonDown" - bool
+    /// - "{rootTopic}/navSpeedButtonUp" - bool
+    /// - "{rootTopic}/jumpButtonDown" - bool
+    /// - "{rootTopic}/jumpButtonUp" - bool
+    /// - "{rootTopic}/wandButtonDown" - bool
+    /// - "{rootTopic}/wandButtonUp" - bool
+    /// - "{rootTopic}/changeWandButtonDown" - bool
+    /// - "{rootTopic}/changeWandButtonUp" - bool
+    /// - "{rootTopic}/resetButtonDown" - bool
+    /// - "{rootTopic}/resetButtonUp" - bool
     ///
     /// Where "{rootTopic}" is the value set for `rootTopic`. By default this is "getReal3D"
     /// NOTE: Doesn't handle the `Wand` and `Head` fields of the `PlayerInterface`
