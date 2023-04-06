@@ -33,6 +33,7 @@ var NAVTREE =
     [ "Prefabs", "md__local_docs_prefabs.html", [
       [ "Player", "md__local_docs_prefabs.html#autotoc_md9", null ]
     ] ],
+    [ "trackD to gamepad controller mapping", "md__local_docs_trackd_mapping.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
