@@ -121,18 +121,24 @@ Installation</h1>
 <li>Download the <code>VEMS_gr3d.unitypackage</code> package from the <a href="https://github.com/VEMS-ok/gr3d/releases">releases on github</a> and add it to the project.</li>
 <li>Following instructions on the documentation provided with the getReal3D unity package to setup unity.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md2"></a>
+VEMS.Utils</h2>
+<p>The <a href="https://vems-ok.github.io/gr3d/namespaceubc_1_1ok_1_1_v_e_m_s_1_1_utils.html"><code>VEMS.Utils</code></a> package contains components that do not depend on the <code>getReal3D</code>, whcih includes the following:</p><ul>
+<li><a href="https://vems-ok.github.io/gr3d/classubc_1_1ok_1_1_v_e_m_s_1_1_utils_1_1_message_client.html"><code>MessageClient</code></a>: Allows connecting to the VEMS MQTT server.</li>
+</ul>
+<p>The <code>VEMS_Utils.unitypackage</code> package from the <a href="https://github.com/VEMS-ok/gr3d/releases">releases on github</a> can be used to import only the <code>VEMS.Utils</code> package. The <code>VEMS.Utils</code> is included in <code>VEMS_gr3d.unitypackage</code> as well.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Documentation</h1>
 <ul>
 <li>Documentation of the extensions are available at <a href="https://vems-ok.github.io/gr3d/">https://vems-ok.github.io/gr3d/</a>.</li>
 <li>When the appliction is built, it connects to the server <code>vemslab.ok.ubc.ca</code> on port 80. During development, please do not use this server, as it may interfere with anyone using the VEMS space. Note that, when testing from editor, it would not allow connecting to this server.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Examples</h1>
 <ul>
 <li>A sample react application that acts as a remote input can be found in <a href="https://github.com/VEMS-ok/sample-react-remote-input">https://github.com/VEMS-ok/sample-react-remote-input</a> This generates messages which are recieved by the <code>getRealRemoteInput</code>. A react app is hosted in <a href="https://vems-ok.github.io/sample-react-remote-input/">https://vems-ok.github.io/sample-react-remote-input/</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Contributions</h1>
 <ul>
 <li>See CONTRIBUTING.md </li>

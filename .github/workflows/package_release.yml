@@ -3,7 +3,7 @@ on:
     types: [published]
     
 jobs:
-  unity-pacakge:
+  unity-pacakge-all:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
@@ -19,6 +19,27 @@ jobs:
 
     - run: |
         gh release upload $(echo ${{ github.ref }}| sed "s|refs/tags/||") VEMS_gr3d.unitypackage
+      env:
+        GITHUB_TOKEN: ${{ github.TOKEN }}
+      shell: bash
+      name: Uploads attachments to release
+
+  unity-pacakge-utils:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        echo -e "Assets/VEMS.meta\nAssets/VEMS/Utils.meta" > meta_list
+        find Assets/VEMS/Utils/ -name \*.meta >> meta_list
+
+    - uses: pCYSl5EDgo/create-unitypackage@master
+      with:
+        package-path: 'VEMS_utils.unitypackage'
+        include-files: meta_list
+
+    - run: |
+        gh release upload $(echo ${{ github.ref }}| sed "s|refs/tags/||") VEMS_utils.unitypackage
       env:
         GITHUB_TOKEN: ${{ github.TOKEN }}
       shell: bash
